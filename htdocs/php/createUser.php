@@ -7,7 +7,7 @@
     $score = 0;
     $lastonline = time();
 
-    $query = "INSERT INTO user (user, email, password, score, lastonline) VALUES ('$user','$email','$password','$score','$lastonline')"; //Create mySQL request
+    $query = "INSERT INTO user (name, email, password, score, lastonline) VALUES ('$user','$email','$password','$score','$lastonline')"; //Create mySQL request
     $result = $connection->query($query);
 
     if ($result === TRUE){
