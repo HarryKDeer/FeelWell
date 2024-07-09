@@ -1,1 +1,0 @@
-/* this is a sample file that will be deleted shortly. this is just to provide a skeleton of directories */
