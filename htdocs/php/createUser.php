@@ -15,6 +15,7 @@
     } else {
         echo "Error. Could not create new entry. <br>" . $conn->error;
     }
+    
 
     $connection->close();
 ?>
