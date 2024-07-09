@@ -14,8 +14,9 @@
         echo "New entry created successfully";
     } else {
         echo "Error. Could not create new entry. <br>" . $conn->error;
+        throw new Exception("An error occurred");
     }
-    
+
 
     $connection->close();
 ?>
