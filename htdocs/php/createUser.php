@@ -15,11 +15,11 @@
     if ($result === TRUE){
         $answer = <<<EOT
         {"success": true}
-        EOT;
+EOT;
     } else {
         $answer = <<<EOT
         {"success": false}
-        EOT;
+EOT;
         throw new Exception("An error occurred");
     }
 

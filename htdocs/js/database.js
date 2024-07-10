@@ -56,16 +56,15 @@ async function createUser()
     url = website + `createUser.php?user=${user}&email=${email}&password=${password}`;
     console.log("url", url);
     const response = await fetch(url);
-    if (!response)
-    {
-        throw new Error(`Response status: ${response.status}`);
-    } else {
+    if (response && response.ok){
         const json = await response.json();
         if (json.success) {
             document.getElementById("response").innerHTML = "Account created successfully"; //Response ID provides a completed Response
         } else {
             document.getElementById("response").innerHTML = "Account not created successfully. Was the username or email used before?";
         }
+    } else {
+        document.getElementById("response").innerHTML = "Account not created successfully. Was the username or email used before?";
+        throw new Error(`Response status: ${response.status}`);    
     }
-    
 }
