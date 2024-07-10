@@ -60,9 +60,10 @@ async function createUser()
     {
         throw new Error(`Response status: ${response.status}`);
     } else {
-        try {
+        const json = await response.json();
+        if (json.success) {
             document.getElementById("response").innerHTML = "Account created successfully"; //Response ID provides a completed Response
-        } catch (error) {
+        } else {
             document.getElementById("response").innerHTML = "Account not created successfully. Was the username or email used before?";
         }
     }
