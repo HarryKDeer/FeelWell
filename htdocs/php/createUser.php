@@ -10,10 +10,18 @@
     $query = "INSERT INTO user (name, email, password, score, lastonline) VALUES ('$user','$email','$password','$score','$lastonline')"; //Create mySQL request
     $result = $connection->query($query);
 
+    
+
     if ($result === TRUE){
         echo "New entry created successfully";
+        $answer = <<<EOT
+        {"success": true}
+        EOT;
     } else {
         echo "Error. Could not create new entry. <br>" . $conn->error;
+        $answer = <<<EOT
+        {"success": false}
+        EOT;
         throw new Exception("An error occurred");
     }
 
