@@ -13,17 +13,17 @@
     
 
     if ($result === TRUE){
-        echo "New entry created successfully";
         $answer = <<<EOT
         {"success": true}
         EOT;
     } else {
-        echo "Error. Could not create new entry. <br>" . $conn->error;
         $answer = <<<EOT
         {"success": false}
         EOT;
         throw new Exception("An error occurred");
     }
+
+    echo $answer;
 
 
     $connection->close();
