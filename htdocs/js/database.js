@@ -58,13 +58,13 @@ async function createUser()
     const response = await fetch(url);
     if (response && response.ok){
         const json = await response.json();
-        if (json.success) {
+        if (json) {
             document.getElementById("response").innerHTML = "Account created successfully"; //Response ID provides a completed Response
         } else {
             document.getElementById("response").innerHTML = "Account not created successfully. Was the username or email used before?";
         }
     } else {
         document.getElementById("response").innerHTML = "Account not created successfully. Was the username or email used before?";
-        throw new Error(`Response status: ${response.status}`);    
+        throw new Error(`Response status: ${response.status}`);
     }
 }
