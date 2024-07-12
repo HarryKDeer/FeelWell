@@ -15,7 +15,7 @@
         $answer = <<<EOT
         {"name":"$name", "email":"$email", "password":"$password", "score":"$score", "lastonline":
         "$lastonline"}
-        EOT;
+EOT;
         echo $answer;
     }
 
