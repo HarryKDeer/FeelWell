@@ -78,6 +78,10 @@ body{
     border: 1px solid black;
 }
 
+.progress-bar:hover{
+    border-width: 2px;
+}
+
 .progress-bar::before{
     content: attr(data-label);
 }
