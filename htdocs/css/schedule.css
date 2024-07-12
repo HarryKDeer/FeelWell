@@ -1,0 +1,174 @@
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #8be988;
+    background-image: url("bgElement.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: -550px;
+}
+
+p {
+    text-align: left;
+    color: #6f612f;
+}
+
+p.footer {
+    text-align: center;
+    color: #7d7d7d;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #70d579;
+    padding: 0px 10%;
+    margin: 0px;
+    filter: drop-shadow(0px 5px 5px #5b9b52);
+    background: linear-gradient(90deg, rgba(68,102,64,1) 0%, rgba(80,121,74,1) 5%, rgba(80,121,74,1) 95%, rgba(68,102,64,1) 100%);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .main-menu ul {
+    display: flex;
+}
+
+.navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover {
+    color: #ffd438;
+    background-color: rgb(96, 167, 87);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Stripe Styles */
+.stripe {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 25px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
+    box-shadow: 1px 1px 1px 1px #5b9b52;
+    background-color: #75d172;
+    background-attachment: fixed;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(63, 81, 59);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer a {
+    color: #7d7d7d;
+}
+
+.footer ul li a {
+    padding: 10px 20px;
+    display: block;
+    transition: 0.5s;
+}
+
+.footerColumns {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    text-align: right;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+/* Schedule Styles */
+.schedule-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.schedule {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.day {
+    background: #eaeaea;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.day h2 {
+    margin-top: 0;
+}
+
+.event {
+    background: #fff;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.delete-btn {
+    background: #ff4d4d;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background: #ff1a1a;
+}
