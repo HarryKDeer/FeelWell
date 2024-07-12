@@ -172,3 +172,12 @@ footer a {
 .delete-btn:hover {
     background: #ff1a1a;
 }
+
+img.bigLogo{
+    margin-left: 20%;
+    width: 60%;
+}
+
+img.logo{
+    width: 100px;
+}
