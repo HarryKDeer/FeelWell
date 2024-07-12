@@ -1,0 +1,85 @@
+.header_title{
+
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+/* Quests CSS */
+
+.quests-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 40px;
+    margin-top: 30px;
+    margin-left: 20px;
+    margin-right: auto;
+    padding-bottom: 50px; 
+
+}
+
+.quest-section{
+    display: grid;
+    justify-items: center;
+    row-gap: 5px;
+    column-gap: auto;
+}
+
+.quest-header{
+    font-family: Roboto, Arial;
+    font-size: 20px;
+}
+
+.quest-description{
+    font-family: Roboto, Arial;
+    font-size: 18px;
+    color: rgb(69, 68, 68);
+    cursor: pointer;
+}
+
+.quest-description:hover{
+    opacity: 0.8;
+}
+
+.text-color{
+    color: pink;
+}
+
+@media (max-width: 800px){
+    .quest-grid{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* Quests CSS end */
+
+
+
+.progress-bar{
+    margin-top: 0px; 
+    width: 450px;
+    height: 3em; 
+    background-color: rgb(212, 208, 208);
+    box-shadow: 10px, 10px, white;
+    border-radius: 1.5em;
+    color: black; 
+    display: flex; 
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.progress-bar::before{
+    content: attr(data-label);
+}
+
+
