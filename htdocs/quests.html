@@ -13,7 +13,7 @@
 		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		<link rel="stylesheet" href="css/sample.css"/>
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+		<link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
 
 
 		<!-- Quests Links -->
@@ -22,7 +22,7 @@
 
 	</head>
 
-	<body>
+	<body >
 
 		<img class = "bigLogo" source="media/bigLogo.png">
 
@@ -47,6 +47,9 @@
 						</li>
 						<li>
 							<a href="profile.html">Profile</a>
+						</li>
+						<li>
+							<a onclick="logout()">Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -152,7 +155,7 @@
 
 		<footer>
 			<div class="footerColumns">
-				<img class="logo" src="images/Logo.png">
+				<img class="logo" src="media/logo.png">
 				<p class="footer">Site design / Features © 2024 - Present, FeelWell Team</p>
 				<ul>
 					<li>
@@ -171,7 +174,13 @@
 			</div>
 		</footer>
 
-		<script type="text/javascript" src="js/sample.js"></script>
+		<script type = "module">
+            import { checkAuthState, logout } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.checkAuthState = checkAuthState;
+			window.logout = logout;
+        </script>
 	</body>
 
 	

@@ -22,13 +22,18 @@
 		
 		<link rel="stylesheet" href="css/sample.css"/>
 
-		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
-
-		
+		<link rel="shortcut icon" href="media/favicon.ico?" type="image/x-icon"/>
+		<script type="text/javascript" src=""></script>
+		<script type = "module">
+            import { checkAuthState, logout } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.checkAuthState = checkAuthState;
+			window.logout = logout;
+        </script>
 	</head>
-	<body>
-
-		<img class = "bigLogo" source="media/bigLogo.png">
+	<body onload = "checkAuthState()">
+		<img class = "bigLogo" src="media/bigLogo.png">
 
 		<nav id="navbarID" class="navbar">
 			<div class="container">
@@ -52,6 +57,9 @@
 						<li>
 							<a href="profile.html">Profile</a>
 						</li>
+						<li>
+							<a onclick="logout()">Logout</a>
+						</li>
 					</ul>
 				</div>
 			</div>
@@ -70,7 +78,7 @@
 
 		<footer>
 			<div class="footerColumns">
-				<img class="logo" src="images/Logo.png">
+				<img class="logo" src="media/logo.png">
 				<p class="footer">Site design / Features © 2024 - Present, FeelWell Team</p>
 				<ul>
 					<li>
@@ -85,11 +93,10 @@
 					<li>
 						<a href="profile.html">Profile</a>
 					</li>
+					
 				</ul>
 			</div>
 		</footer>
-
-		<script type="text/javascript" src="js/sample.js"></script>
 	</body>
 
 	
