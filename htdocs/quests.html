@@ -174,7 +174,13 @@
 			</div>
 		</footer>
 
-		<script type="text/javascript" src="js/sample.js"></script>
+		<script type = "module">
+            import { checkAuthState, logout } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.checkAuthState = checkAuthState;
+			window.logout = logout;
+        </script>
 	</body>
 
 	

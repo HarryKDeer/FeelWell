@@ -13,7 +13,7 @@
                 <form>
                     <input type="email" id="log_email" placeholder="Email" required>
                     <input type="password" id="log_password" placeholder="Password" required>
-                    <button type="submit" onclick = "login()">Login</button>
+                    <button type="button" id="loginButton">Login</button>
                 </form>
                 <div class="switch">
                     <p>Don't have an account? <a href="#" onclick="toggleForms()">Register</a></p>
@@ -27,7 +27,7 @@
                     <input type="email" id="reg_email" placeholder="Email" required>
                     <input type="password" id="reg_password" placeholder="Password" required>
                     <input type="password" placeholder="Confirm Password" required>
-                    <button type="submit" onclick = "register()">Register</button>
+                    <button type="button" id="registerButton">Register</button>
                 </form>
                 <div class="switch">
                     <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
@@ -37,6 +37,10 @@
         <script type = "module">
             import { register, login, toggleForms, checkAuthState } from "./js/login.js";
             
+            document.getElementById('loginButton').addEventListener('click', login);
+            document.getElementById('registerButton').addEventListener('click', register);
+            
+
             // Attach functions to the global window object
             window.register = register;
             window.login = login;
