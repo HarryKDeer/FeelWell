@@ -7,20 +7,13 @@
         <link rel="stylesheet" href="css/login.css"/>
     </head>
     <body>
-
-        <!-- firebase stuff -->
-        <script defer src="/__/firebase/10.12.3/firebase-app-compat.js"></script>
-        <script defer src="/__/firebase/10.12.3/firebase-auth-compat.js"></script>
-
-        <script src = "js/login.js"></script>
-
         <div class="container">
             <div id="login">
                 <h2>Login</h2>
                 <form>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
-                    <button type="submit">Login</button>
+                    <input type="email" id="log_email" placeholder="Email" required>
+                    <input type="password" id="log_password" placeholder="Password" required>
+                    <button type="submit" onclick = "login()">Login</button>
                 </form>
                 <div class="switch">
                     <p>Don't have an account? <a href="#" onclick="toggleForms()">Register</a></p>
@@ -30,17 +23,26 @@
             <div id="register" style="display: none;">
                 <h2>Register</h2>
                 <form>
-                    <input type="text" placeholder="Full Name" required>
-                    <input type="email" placeholder="Email" required>
-                    <input type="password" placeholder="Password" required>
+                    <input type="user" id="reg_user" placeholder="Full Name" required>
+                    <input type="email" id="reg_email" placeholder="Email" required>
+                    <input type="password" id="reg_password" placeholder="Password" required>
                     <input type="password" placeholder="Confirm Password" required>
-                    <button type="submit">Register</button>
+                    <button type="submit" onclick = "register()">Register</button>
                 </form>
                 <div class="switch">
                     <p>Already have an account? <a href="#" onclick="toggleForms()">Login</a></p>
                 </div>
             </div>
         </div>
+        <script type = "module">
+            import { register, login, toggleForms, checkAuthState } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.register = register;
+            window.login = login;
+            window.toggleForms = toggleForms;
+            window.checkAuthState = checkAuthState;
+        </script>
     </body>
     
 

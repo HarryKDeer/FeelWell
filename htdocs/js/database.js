@@ -68,3 +68,5 @@ async function createUser()
         throw new Error(`Response status: ${response.status}`);
     }
 }
+
+export { getUserInfo, createUser };

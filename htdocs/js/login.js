@@ -1,5 +1,8 @@
 // grabbing functions from databas.js
-const { getUserInfo, createUser } = require('./database');
+import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"
+import { getUserInfo, createUser } from "./database.js";
 
   
   // Your web app's Firebase configuration
@@ -19,65 +22,45 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 // initialize authentication var
-const auth = firebase.auth()
+const auth = getAuth(app);
 
 // Set up register function
 function register(){
     // call createUser function to grab the info
-    createUser()
+    createUser();
     
     // grabs user, email + password for authenication
-    user = document.getElementById("user").value;
-    email = document.getElementById('email').value
-    password = document.getElementById('email').value
+    const user = document.getElementById("reg_user").value;
+    const email = document.getElementById('reg_email').value;
+    const password = document.getElementById('reg_password').value;
 
-    //This uses regular expressions to prevents the user from injecting HTML code into the database
-    let userRegex = new RegExp('^[a-zA-Z]+[a-zA-Z0-9_-]*$'); 
-    let emailRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}'); //This ensures that this is a valid email address
- 
-    if (!userRegex.test(user)){
-        document.getElementById("error").innerHTML = "Invalid username"; //error ID provides error feedback
-        document.getElementById("response").innerHTML = "Account not created successfully";
-        return;
-    } else if (!emailRegex.test(email)) {
-        document.getElementById("error").innerHTML = "Invalid email";
-        document.getElementById("response").innerHTML = "Account not created successfully";
-        return;
-    } else if (!password || password.length < 3) {
-        document.getElementById("error").innerHTML = "Invalid password. Your password must be at least 3 characters long";
-        document.getElementById("response").innerHTML = "Account not created successfully";
-        return;
-    } else {
-        document.getElementById("error").innerHTML = "";
-        document.getElementById("response").innerHTML = "";
-    }
+    const auth = getAuth();
+
 
     // authenticate user
-    auth.createUserWithEmailAndPassword(email, password)
-    .then(function() {
-        var user = auth.currentUser
-
-        // if authenicated, will call createUser and do all the cool db stuff, also checks if email, password is viable
-        createUser()
-
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        const user = userCredential.user
         alert('User Created!!')
+        window.location.href = "index.html";
     })
     .catch(function(error) {
         // Firebase will use this to alert of its errors
-        var error_code = error.code
-        var error_message = error.message
+        const errorCode = error.code
+        const errorMessage = error.message
   
-        alert(error_message)
+        alert(errorMessage)
+        alert("u shitter")
     })
 }
 
-// Set up Login funcitno
+// Set up Login function
 function login(){
     // Get input fields
-    email = document.getElementById('email').value
-    password = document.getElementById('email').value
-
+    const email = document.getElementById('log_email').value;
+    const password = document.getElementById('log_password').value;
     // validate email + password
+    /*
     if (!emailRegex.test(email)) {
         document.getElementById("error").innerHTML = "Invalid email";
         document.getElementById("response").innerHTML = "Account not created successfully";
@@ -87,15 +70,47 @@ function login(){
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
     }
-
+    */
+    const auth = getAuth();
     // authenticate it's really the user
-    auth.signInWithEmailAndPassword(email, password)
-    .then(function() {
-        // declare user variable
-        var user = auth.currentUser
-
-        // need db update function
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        
+        //window.location.href = "index.html"
+        console.log("it work");
+        alert("it not working")
+        window.location.href = "index.html"
+        // ...
+      })
+    .catch(function(error) {
+        // Firebase will use this to alert of its errors
+        const errorCode = error.code
+        const errorMessage = error.message
+  
+        alert(errorMessage)
+        alert("u shitter")
     })
+
+
+}
+
+function logout() {
+    const auth = getAuth();
+    signOut(auth)
+    .then(() => {
+        // Sign-out successful.
+        // Optionally, redirect to login page or update UI
+        // window.location.href = "login.html";
+        checkAuthState()
+        console.log("User signed out successfully");
+        alert("User signed out successfully")
+    })
+    .catch((error) => {
+        // An error happened.
+        console.error("Error signing out:", error);
+    });
 }
 
 function toggleForms() {
@@ -109,3 +124,25 @@ function toggleForms() {
         registerForm.style.display = 'block';
     }
 }
+
+function checkAuthState() {
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+    console.log("bruh");
+    if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        console.log(user.email)
+        
+        // ...
+    } else {
+        // User is signed out
+        // ...
+        console.log("typeshit");
+        window.location.href = "login.html";
+    }
+});
+}
+
+export { register, login, toggleForms, checkAuthState, logout };
