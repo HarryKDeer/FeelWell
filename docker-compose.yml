@@ -1,0 +1,20 @@
+version: "3"
+services:
+  webserver:
+    image: php:8.0-apache # Use the official PHP Apache image
+    ports:
+      - "80:80" # Map port 80 of the container to port 80 of your host
+    volumes:
+      - ./:/var/www/html # Mount your project directory to the Apache document root
+  db:
+    image: mysql:5.7 # Use the official MySQL image (adjust version as needed)
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password123! # Set your MySQL root password
+      MYSQL_DATABASE: FeelWell # Create a database named "FeelWell"
+      MYSQL_USER: web # Create a MySQL user named "web"
+      MYSQL_PASSWORD: abc123 # Set the password for the "web" user
+    volumes:
+      - mysql_data:/var/lib/mysql # Persist MySQL data
+volumes:
+  mysql_data:
