@@ -34,13 +34,12 @@
 
         <!-- javascript -->
         <script>
-            const score = getUserScore("foo");
+            const prom = getUserScore("foo");
 
-            if (score){
-                document.getElementById("userScore").innerHTML = score;
-            } else {
+            (prom && prom.then(score =>document.getElementById("userScore").innerHTML = score))
+            /*} else {
                 document.getElementById("userScore").innerHTML = "No score found";
-            }
+            }*/
 
             function checkUserScore(){
                 //user = document.getElementById("user");
