@@ -34,7 +34,13 @@
 
         <!-- javascript -->
         <script>
-            document.getElementById("userScore").innerHTML = await getUserScore("foo");
+            const score = getUserScore("foo");
+
+            if (score){
+                document.getElementById("userScore").innerHTML = score;
+            } else {
+                document.getElementById("userScore").innerHTML = "No score found";
+            }
 
             function checkUserScore(){
                 //user = document.getElementById("user");
