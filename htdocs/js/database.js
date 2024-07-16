@@ -24,8 +24,10 @@ async function getUserInfo()
     document.getElementById('lastonline').innerHTML = json.lastonline;
 }
 
-async function getUserScore(user = document.getElementById("user").value)
+async function getUserScore()
 {    
+    user = document.getElementById("user").value;
+
     //PHP stuff
     url = website + `getUser.php?user=${user}`;
     console.log("url", url);
@@ -37,7 +39,12 @@ async function getUserScore(user = document.getElementById("user").value)
     const json = await response.json();
 
     //Naming your html elements these respective names will provide the relevant information regarding them
-    return json.score;
+    if (json){
+        document.getElementById('userScore').innerHTML = json.score;
+    } else {
+        document.getElementById("error").innerHTML = "User does not exist";
+    }
+    
 }
 
 async function createUser()
