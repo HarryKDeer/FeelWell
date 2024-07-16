@@ -100,6 +100,25 @@ async function createUser()
 }
 
 async function changeUserContent(user, newValue, contentType){
+    /*
+    This function takes in three values:
+        user -> the username of the user you're affecting
+        newValue -> the new value you want to change in contentType's column
+        contentType -> which column you want to change
+    
+    There are 5 columns: (name:dataType)
+        name: varchar
+        email: varchar
+        password: varchar
+        score: int
+        lastonline: int
+    
+    refrain from changing the name and email as they are the main identifier for the user
+
+    example usage:
+        changeUserContent(foo, 150, score);
+    */
+
     //PHP stuff
     url = website + `changeUserContent.php?user=${user}&newValue=${newValue}&contentType=${contentType}`;
     console.log("url", url);
