@@ -2,10 +2,10 @@
     $connection = new mysqli("127.0.0.1", "web", "abc123", "FeelWell");
 
     $user = $_GET['user'];
-    $newScore = $_GET['newValue'];
+    $newValue = $_GET['newValue'];
     $contentType = $_GET['contentType'];
 
-    $query = "UPDATE user SET $contentType = '$newValue' WHERE user = '$user'"; //Create mySQL request
+    $query = "UPDATE user SET $contentType = '$newValue' WHERE name = '$user'"; //Create mySQL request
     $result = $connection->query($query);
 
     if ($result === TRUE){
