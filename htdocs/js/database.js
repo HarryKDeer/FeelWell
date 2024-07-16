@@ -24,10 +24,8 @@ async function getUserInfo()
     document.getElementById('lastonline').innerHTML = json.lastonline;
 }
 
-async function getUserScore()
+async function getUserScore(user = document.getElementById("user").value)
 {    
-    user = document.getElementById("user").value;
-
     //PHP stuff
     url = website + `getUser.php?user=${user}`;
     console.log("url", url);
@@ -40,12 +38,14 @@ async function getUserScore()
 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
-        document.getElementById('userScore').innerHTML = json.score;
+        return json.score;
     } else {
         document.getElementById("error").innerHTML = "User does not exist";
     }
     
 }
+
+async
 
 async function createUser()
 {
@@ -91,5 +91,3 @@ async function createUser()
         throw new Error(`Response status: ${response.status}`);
     }
 }
-
-export { getUserInfo, createUser };
