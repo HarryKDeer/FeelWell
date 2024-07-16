@@ -45,8 +45,6 @@ async function getUserScore(user = document.getElementById("user").value)
     
 }
 
-async
-
 async function createUser()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user

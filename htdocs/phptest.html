@@ -3,20 +3,9 @@
     <head>
         <title>PHP test page</title>
         <script type="text/javascript" src="js/database.js"></script>
-        <script>
-            document.getElementById("userScore").innerHTML = getUserScore("foo");
-
-            function checkUserScore(){
-                //user = document.getElementById("user");
-
-                document.getElementById("userScore") = getUserScore();
-            }
-        </script>
     </head>
     <body>
-        <h1>PHP Test Page for FeelWell</h1>
-
-        
+        <h1>PHP Test Page for FeelWell</h1> 
         <!-- <p>Press the button to get the info for the given user:</p>
         <input type="text" id="user"></input> 
         <button onclick="getUserInfo()">Push Me</button>
@@ -41,5 +30,17 @@
         <button onclick="checkUserScore()">Push Me</button>
         <div id="userScore"></div>
         <div id="error"></div>
+
+
+        <!-- javascript -->
+        <script>
+            document.getElementById("userScore").innerHTML = getUserScore("foo");
+
+            function checkUserScore(){
+                //user = document.getElementById("user");
+
+                document.getElementById("userScore").innerHTML = getUserScore();
+            }
+        </script>
     </body>
 </html>
