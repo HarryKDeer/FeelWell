@@ -12,9 +12,8 @@ body {
     margin: 0;
     padding: 0;
     background-color: #8be988;
-    background-image: url("bgElement.png");
+    background-image: url("../media/bg.png");
     background-size: cover;
-    background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-y: -550px;
 }
@@ -27,6 +26,28 @@ p {
 p.footer {
     text-align: center;
     color: #7d7d7d;
+}
+
+p.intro{
+    color:white;
+    padding:20px;
+}
+
+h1.introHeader{
+    color:rgb(255, 223, 41);
+    font-size: 60px;
+    font-family: "MedievalSharp", cursive;
+    font-weight: 400%;
+    font-style:normal;
+    text-align: center;
+}
+
+hr.intro{
+    transition: width 0.8s ease-out;
+    width: 5%;
+    margin:auto;
+    height: 5px;
+    background-color: rgb(255, 223, 41);;
 }
 
 /* Navbar Styles */
@@ -105,6 +126,20 @@ footer a {
     transition: 0.5s;
 }
 
+.portrait{
+    width: 80%;
+    animation: bobUpDown 2s ease-in-out infinite;
+}
+
+@keyframes bobUpDown {
+    0%, 100% {
+      transform: translateY(50);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+  }
+
 .footerColumns {
     position: relative;
     margin-left: auto;
@@ -180,4 +215,79 @@ img.bigLogo{
 
 img.logo{
     width: 100px;
+}
+
+.logo{
+    padding-top: 5px;
+}
+
+.fadein1{
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 0.4s ease-out, margin-top 0.4s ease-out;
+}
+.fadein2{
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 0.3s ease-out, margin-top 0.4s ease-out;
+}
+.fadein3{
+    opacity: 0;
+    margin-top: 20px;
+    transition: opacity 0.3s ease-out, margin-top 0.4s ease-out;
+}
+.introduction{
+    text-align: left;
+    vertical-align: top;
+    color:white;
+    margin-top: 50px;
+    position:relative;
+    z-index: 1;
+}
+
+.introduction::before{
+    content: "";
+    width: 106%;
+    height: 120%;
+    z-index: -1;
+  
+    position: absolute;
+        top: 1px;
+        bottom: 0;
+        right: 0;
+  
+    background-color: #317246;
+}
+
+.introduction::after{
+    content: "";
+    width: 106%;
+    height: 120%;
+    z-index: -1;
+  
+    position: absolute;
+    bottom: 1px;
+  
+    background-color: #275d38;
+}
+
+.introColumns{
+    display: grid;
+    align-items: center; 
+    grid-template-columns: 40% auto;
+    column-gap: 50px;
+    margin: 40px;
+    margin-top: 100px;
+    padding: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.introHeader{
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #38a255;
+    align-content: center;
+    padding: 15px;
 }
