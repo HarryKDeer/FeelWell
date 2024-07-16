@@ -24,7 +24,7 @@ async function getUserInfo()
     document.getElementById('lastonline').innerHTML = json.lastonline;
 }
 
-async function getUserScore(user = document.getElementById("user").value) //You can pass either a variable in, or the function will get it itself
+async function getUserJson(user = document.getElementById("user").value) //You can pass either a variable in, or the function will get it itself
 {    
     //PHP stuff
     url = website + `getUser.php?user=${user}`;
@@ -39,15 +39,15 @@ async function getUserScore(user = document.getElementById("user").value) //You 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
         document.getElementById("userScore").innerHTML = json.score;
-        return json.score;
+        return json; //Usually in the form of {name: , email: , password: , score: , lastonline: }
     } else {
         document.getElementById("error").innerHTML = "User does not exist";
     }
     
     /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
 
-            const prom = getUserScore("foo");
-            (prom && prom.then(score =>document.getElementById("userScore").innerHTML = score))
+            const prom = getUserJson("foo");
+            (prom && prom.then(values =>document.getElementById("userScore").innerHTML = values.score))
 
         this creates a variable that holds the promise. The promise gets checked if it is validated then the '.then()' function will
         wait for the promise to resolve and execute the inline function creation (which is donated by the '=>')
