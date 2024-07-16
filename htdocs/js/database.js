@@ -24,6 +24,22 @@ async function getUserInfo()
     document.getElementById('lastonline').innerHTML = json.lastonline;
 }
 
+async function getUserScore(user = document.getElementById("user").value)
+{    
+    //PHP stuff
+    url = website + `getUser.php?user=${user}`;
+    console.log("url", url);
+    const response = await fetch(url);
+    if (!response)
+    {
+        throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json();
+
+    //Naming your html elements these respective names will provide the relevant information regarding them
+    return json.score;
+}
+
 async function createUser()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user
