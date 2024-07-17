@@ -56,8 +56,11 @@ body{
 }
 
 .quest-description{
-    font-family: Roboto, Arial;
-    font-size: 18px;
+    font-family: "VT323", monospace;
+    font-weight: 500;
+    font-style: normal;
+    /* font-family: Roboto, Arial; */
+    font-size: 20px;
     color: rgb(69, 68, 68);
     /* cursor: pointer; */
     margin-bottom: 10px; 
