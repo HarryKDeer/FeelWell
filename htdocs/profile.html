@@ -40,11 +40,6 @@
             <img id="selectedImg" src="media/knight.png" alt="Selected Profile Picture" style="width:300px; height:auto;">
             <button onclick="toggleGallery()">Change Profile Picture</button>
 			
-			<div class="name-change-container">
-                <input type="text" id="nameInput" placeholder="Enter new name">
-                <button onclick="updateName()">Update Name</button>
-            </div>
-
 			<div class="title-change-container">
                 <input type="text" id="titleInput" placeholder="Enter new title">
                 <button onclick="updateTitle()">Update Title</button>
@@ -60,7 +55,7 @@
             </div>
             <p>Skill Experience</p>
             <div class="experience-bar">
-                <div class="Experience" style="width: 80%;">100%</div>
+                <div class="Experience" style="width: 0%;" id="experienceBar">0%</div>
             </div>
             <p>Skill Level: <span id="skillLevel">1</span></p>
         </div>
