@@ -215,6 +215,7 @@ body{
     border-radius: 10px;
     box-shadow: 2px 2.5px 10px  rgb(32, 32, 32); 
     border: 2px solid black;
+    font-style: italic;
     /* background-color: rgb(146, 255, 140); */
 
 }
