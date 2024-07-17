@@ -18,12 +18,9 @@
 
 		<!-- Quests Links -->
 		<link rel = "stylesheet" href = "css/quests.css">
-		<script src = "js/quests.js"></script>
-
 	</head>
 
 	<body>
-
 		<img class = "bigLogo" source="media/bigLogo.png">
 
 		<nav id="navbarID" class="navbar">
@@ -53,10 +50,14 @@
 			</div>
 		</nav>
 
-		<div class="stripe">
-			<div class = "header-title" style ="margin:auto; font-family: Roboto, Arial; font-size: 60px; padding-top:14px; font-weight: 100;" >
-			<strong>Quests</strong></div>
-		</div>
+			<!-- <div class = "header-title" style ="margin:auto; font-family: Roboto, Arial; font-size: 60px; padding-top:14px; font-weight: 100;" >
+			<strong>Questboard</strong></div> -->
+
+			<div class = "quests-title-container">
+				<!-- <img class = "wood-backdrop" src = "media/wood-backdrop.jpg"> -->
+				<img class = "quest-font-image" src = "media/questboard-font.png">
+			</div>
+	
 
 			<div class = "quests-grid">
 
@@ -141,9 +142,63 @@
 					</div>
 				</div>
 
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<h2>Quest 7</h2>
+					</div>
+					<div class = "quest-description">
+						<div> Try cooking a new healthy recipe</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/5">
+						</div>
+					</div>
+				</div>
+
+
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<h2>Quest 8</h2>
+					</div>
+					<div class = "quest-description">
+						<div>Spend a day without checking social media</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/100%">
+						</div>
+					</div>
+				</div>
+
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<h2>Quest 9</h2>
+					</div>
+					<div class = "quest-description">
+						<div>Go some place new</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/100%">
+						</div>
+					</div>
+				</div>
+				
+				
 			</div>
 
-			
+		<div class = "quote-container">
+
+			<button class =  "button-quote" onclick = "displayRandomQuote()">
+				<img class = "book-icon" src = "media/book_icon.png">
+				<div class = "button-text"></div>
+			</button>
+			<div class = "motivational-quote" id = "quote">
+			</div>
+			<div class = "author-quote"></div>
+
+
+
+
+		</div>
 
 		
 		
@@ -171,6 +226,7 @@
 			</div>
 		</footer>
 
+		<script src = "js/quests.js"></script>
 		<script type="text/javascript" src="js/sample.js"></script>
 	</body>
 

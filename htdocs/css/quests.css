@@ -15,7 +15,7 @@ body{
 
 .quests-grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     row-gap: 40px;
     margin-top: 30px;
     margin-left: 20px;
@@ -40,7 +40,8 @@ body{
     font-family: Roboto, Arial;
     font-size: 18px;
     color: rgb(69, 68, 68);
-    cursor: pointer;
+    /* cursor: pointer; */
+    margin-bottom: 8px; 
 }
 
 .quest-description:hover{
@@ -65,25 +66,134 @@ body{
 
 .progress-bar{
     margin-top: 0px; 
-    width: 450px;
+    width: 300px;
+    --width: 1;
     height: 3em; 
-    background-color: rgb(212, 208, 208);
+    background-color: rgb(85, 85, 85);
     box-shadow: 10px, 10px, white;
     border-radius: 1.5em;
-    color: black; 
+    color: rgb(255, 255, 255); 
     display: flex; 
     flex: 1;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: 3px solid black;
+    position: relative;
 }
 
 .progress-bar:hover{
     border-width: 2px;
+    background-color: rgb(104, 100, 100);
 }
 
 .progress-bar::before{
     content: attr(data-label);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 0.5em; 
+    top: 0.5em;
+    bottom: 0.5em;
+    width: calc(var(--width, 0)* 1%);
+    min-width: 2rem;
+    max-width: calc(100% - 1em);
+    background-color: rgb(57, 255, 20);
+    border-radius: 1em;
+    padding: 1em;
+}
+
+.quote-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 40px;
 }
 
 
+.motivational-quote{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-family: Roboto, Arial;
+    font-size: 23px;
+    max-width: 1000px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: pre-wrap;
+    background-color: rgb(229, 203, 186);
+    padding: 10px; 
+    border-radius: 10px;
+    box-shadow: 2px 2.5px 10px  rgb(32, 32, 32); 
+    border: 2px solid black;
+    /* background-color: rgb(146, 255, 140); */
+
+}
+
+.button-quote{
+    font-family: Roboto, Arial;
+    /* border-width: 2px;
+    border-style: solid; */
+    text-align: center;
+    border: none;
+    /* border-radius: 5px; */
+    padding: 3px;
+    cursor: pointer;
+    background-color: transparent;
+    margin-bottom: 5px; 
+    margin-top: 15px;
+    /* height: 10px;; */
+    /* box-shadow: 2px 3px black; */
+}
+
+.button-quote:hover{
+    /* background-color: rgb(94, 95, 94);
+    cursor: pointer; */
+}
+
+.button-quote:active{
+    background-color: rgb(64, 64, 64);
+}
+
+
+.book-icon{
+    height: 45px;
+    background-color: transparent;
+}
+
+.button-text{
+    font-family: Roboto, Arial;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.quests-title-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.quest-font-image{
+    height: 100px;
+    justify-content: center;
+    align-items:center;
+    padding: 18px;
+    background-color: rgb(222, 184, 135);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 5px 5px rgb(205,170,125);
+
+}
+
+.wood-backdrop{
+    height: 100px;
+    background-color: transparent;
+    mix-blend-mode: multiply;
+}
