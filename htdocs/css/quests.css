@@ -41,7 +41,7 @@ body{
     font-size: 18px;
     color: rgb(69, 68, 68);
     /* cursor: pointer; */
-    margin-bottom: 8px; 
+    margin-bottom: 10px; 
 }
 
 .quest-description:hover{
@@ -196,4 +196,15 @@ body{
     height: 100px;
     background-color: transparent;
     mix-blend-mode: multiply;
+}
+
+
+.quest-icons{
+    height: 55px;
+    display: flex; 
+    justify-content: center;
+    margin-bottom: 10px;
+    background-color: rgba(247, 251, 247, 0.4);
+    border-radius: 22.5px;
+    padding: 6px;
 }
