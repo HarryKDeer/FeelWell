@@ -1,4 +1,18 @@
 window.onload = _ => {
+    //Get Leaderboard
+    let jsonProm = getTopTen();
+
+    (jsonProm && jsonProm.then(json => {
+        for (var i = 1; i < 11; i++){
+            let obj = json[i - 1];
+
+            document.getElementById("leaderUser" + i).innerHTML = obj[i-1][0];
+            document.getElementById("leaderScore" + i).innerHTML = obj[i-1][1];
+        }}
+    ));
+
+
+    //Fancy Effects
     console.log("window loaded");
     const img1 = document.getElementById("fadeID1");
     const img2 = document.getElementById("fadeID2");
@@ -23,3 +37,18 @@ window.onload = _ => {
         line1.style.width= "80%";
     }, 200);
 };
+
+async function getTopTen(){
+    const website = '../php/';
+    
+    url = website + `getTopTen.php`;
+    console.log("url", url);
+    const response = fetch(url);
+    if (!response)
+    {
+        throw new Error(`Response status: ${response.status}`);
+    }
+    const json = response.json();
+    return json;
+}
+
