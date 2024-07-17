@@ -42,8 +42,6 @@ function displayRandomQuote() {
 window.onload = displayRandomQuote;
 
 
-
-// New code for quest progress
 document.addEventListener('DOMContentLoaded', function() {
     const questSections = document.querySelectorAll('.quest-section');
 
@@ -62,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const xpGained = 100 - oldProgress; // Calculate XP gained
                 animateProgress(progressBar, oldProgress, progress, 1000, () => {
                     showXPAnimation(progressBar, xpGained); // Show XP animation after progress bar is full
+                    updateProfileExperience(xpGained); // Update profile experience
                 });
                 localStorage.setItem(`quest${index}Progress`, progress);
             }
@@ -69,9 +68,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (resetButton) {
             resetButton.addEventListener('click', () => {
+                const xpLost = progress; // Calculate XP lost
                 progress = 0;
                 updateProgressBar(progressBar, progress);
                 localStorage.setItem(`quest${index}Progress`, progress);
+                decreaseProfileExperience(xpLost); // Decrease profile experience
             });
         }
     });
@@ -136,4 +137,32 @@ function showXPAnimation(progressBar, xpAmount) {
         xpElement.style.opacity = '0';
         setTimeout(() => xpElement.remove(), 500);
     }, 1000);
+}
+
+function updateProfileExperience(xpGained) {
+    let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+    currentExperience += xpGained;
+    if (currentExperience > 100) currentExperience = 100; // Cap at 100%
+    localStorage.setItem('profileExperience', currentExperience);
+
+    // Notify the profile page to update the experience bar
+    const profileExperienceBar = window.parent.document.getElementById('experienceBar');
+    if (profileExperienceBar) {
+        profileExperienceBar.style.width = currentExperience + '%';
+        profileExperienceBar.textContent = currentExperience + '%';
+    }
+}
+
+function decreaseProfileExperience(xpLost) {
+    let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+    currentExperience -= xpLost;
+    if (currentExperience < 0) currentExperience = 0; // Cap at 0%
+    localStorage.setItem('profileExperience', currentExperience);
+
+    // Notify the profile page to update the experience bar
+    const profileExperienceBar = window.parent.document.getElementById('experienceBar');
+    if (profileExperienceBar) {
+        profileExperienceBar.style.width = currentExperience + '%';
+        profileExperienceBar.textContent = currentExperience + '%';
+    }
 }

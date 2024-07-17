@@ -41,12 +41,56 @@ h1.introHeader{
     text-align: center;
 }
 
+h1.leaderboard{
+    color:rgb(255, 223, 41);
+    font-size: 40px;
+    text-align: center;
+    font-family: "MedievalSharp", cursive;
+    background-color: #43743c;
+    margin: 20px;
+}
+
 hr.intro{
     transition: width 0.8s ease-out;
     width: 5%;
     margin:auto;
     height: 5px;
     background-color: rgb(255, 223, 41);;
+}
+
+tbody tr:nth-child(even) { /*Thanks tsherif from stack overflow!!*/
+    background-color:#4d9c43;
+    color: #fff;
+}
+
+table.leaderboard tr{
+    font-size: 20px;
+    color: white;
+}
+
+table.leaderboard th{
+    padding:15px;
+}
+
+table.leaderboard tr.categories{
+    color:black;
+    font-size: 15px;
+    background-color:#3e7b36;
+}
+
+table.leaderboard tr.first{
+    font-size: 45px;
+    color:#ffd438;
+}
+
+table.leaderboard tr.second{
+    font-size: 30px;
+    color:#c2c2c2;
+}
+
+table.leaderboard tr.third{
+    font-size: 25px;
+    color:#ff9238;
 }
 
 /* Navbar Styles */
