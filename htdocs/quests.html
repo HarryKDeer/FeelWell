@@ -15,14 +15,16 @@
 		<link rel="stylesheet" href="css/sample.css"/>
 		<link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
 
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
 
 		<!-- Quests Links -->
 		<link rel = "stylesheet" href = "css/quests.css">
-		<script src = "js/quests.js"></script>
-
 	</head>
 
-	<body >
+	<body style = "background-image: none;">
 
 		<img class = "bigLogo" source="media/bigLogo.png">
 
@@ -56,30 +58,37 @@
 			</div>
 		</nav>
 
-		<div class="stripe">
-			<div class = "header-title" style ="margin:auto; font-family: Roboto, Arial; font-size: 60px; padding-top:14px; font-weight: 100;" >
-			<strong>Quests</strong></div>
-		</div>
+			<!-- <div class = "header-title" style ="margin:auto; font-family: Roboto, Arial; font-size: 60px; padding-top:14px; font-weight: 100;" >
+			<strong>Questboard</strong></div> -->
+
+			<div class = "quests-title-container">
+				<!-- <img class = "wood-backdrop" src = "media/wood-backdrop.jpg"> -->
+				<img class = "quest-font-image" src = "media/questboard-font.png">
+			</div>
+	
 
 			<div class = "quests-grid">
 
 				<div class = "quest-section">
-					<div class = "quest-header">
-						<h2>Quest 1</h2>
-					</div>
+					<button class = "quest-header">
+						<!-- <h2>Quest 1</h2> -->
+						 <img class = "quest-icons" src = "media/quest1-icon.png">
+					</button>
 					<div class = "quest-description">
 						<div> Complete 5 workouts this week</div>
 					</div>
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/5">
 						</div>
+						<button class="reset-button">Reset</button>
 					</div>
 				</div>
 
 
 				<div class = "quest-section">
 					<div class = "quest-header">
-						<h2>Quest 2</h2>
+						<!-- <h2>Quest 2</h2> -->
+						<img class = "quest-icons" src = "media/quest2-icon.png">
 					</div>
 					<div class = "quest-description">
 						<div>Complete a workout</div>
@@ -87,12 +96,15 @@
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/100%">
 						</div>
+						<button class="reset-button">Reset</button>
+
 					</div>
 				</div>
 
 				<div class = "quest-section">
 					<div class = "quest-header">
-						<h2>Quest 3</h2>
+						<img class = "quest-icons" src = "media/quest3-icon.png">
+						<!-- <h2>Quest 3</h2> -->
 					</div>
 					<div class = "quest-description">
 						<div>Read for 30 minutes</div>
@@ -100,13 +112,16 @@
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/100%">
 						</div>
+						<button class="reset-button">Reset</button>
+
 					</div>
 				</div>
 
 
 				<div class = "quest-section">
 					<div class = "quest-header">
-						<h2>Quest 4</h2>
+						<!-- <h2>Quest 4</h2> -->
+						 <img class = "quest-icons" src = "media/quest4-icon.png">
 					</div>
 					<div class = "quest-description">
 						<div>Learn a new skill</div>
@@ -114,12 +129,14 @@
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/100%">
 						</div>
+						<button class="reset-button">Reset</button>
 					</div>
 				</div>
 
 				<div class = "quest-section">
 					<div class = "quest-header">
-						<h2>Quest 5</h2>
+						<!-- <h2>Quest 5</h2> -->
+						 <img class = "quest-icons" src = "media/quest5-icon.png">
 					</div>
 					<div class = "quest-description">
 						<div>Clean the house</div>
@@ -127,13 +144,15 @@
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/100">
 						</div>
+						<button class="reset-button">Reset</button>
 					</div>
 				</div>
 
 
 				<div class = "quest-section">
 					<div class = "quest-header">
-						<h2>Quest 6</h2>
+						<!-- <h2>Quest 6</h2> -->
+						 <img class = "quest-icons" src = "media/quest6-icon.png">
 					</div>
 					<div class = "quest-description">
 						<div>Go for a walk</div>
@@ -141,12 +160,76 @@
 					<div class = "quest-progress-bar">
 						<div class = "progress-bar" data-label = "x/100%">
 						</div>
+						<button class="reset-button">Reset</button>
+
 					</div>
 				</div>
 
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<!-- <h2>Quest 7</h2> -->
+						 <img class = "quest-icons" src = "media/quest7-icon.png">
+					</div>
+					<div class = "quest-description">
+						<div> Try cooking a new healthy recipe</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/5">
+						</div>
+						<button class="reset-button">Reset</button>
+
+					</div>
+				</div>
+
+
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<!-- <h2>Quest 8</h2> -->
+						<img class = "quest-icons" src = "media/quest8-icon.png">
+					</div>
+					<div class = "quest-description">
+						<div>Spend a day without checking social media</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/100%">
+						</div>
+						<button class="reset-button">Reset</button>
+					</div>
+
+				</div>
+
+				<div class = "quest-section">
+					<div class = "quest-header">
+						<!-- <h2>Quest 9</h2> -->
+						<img class = "quest-icons" src = "media/quest9-icon.png">
+					</div>
+					<div class = "quest-description">
+						<div>Go some place new</div>
+					</div>
+					<div class = "quest-progress-bar">
+						<div class = "progress-bar" data-label = "x/100%">
+						</div>
+						<button class="reset-button">Reset</button>
+					</div>
+				</div>
+				
+				
 			</div>
 
-			
+		<div class = "quote-container">
+
+			<button class =  "button-quote" onclick = "displayRandomQuote()">
+				<img class = "book-icon" src = "media/book_icon.png">
+				<div class = "button-text"></div>
+			</button>
+			<div class = "motivational-quote" id = "quote">
+			</div>
+			<div class = "author-quote"></div>
+
+
+
+
+		</div>
 
 		
 		
@@ -174,6 +257,7 @@
 			</div>
 		</footer>
 
+		<script src = "js/quests.js"></script>
 		<script type = "module">
             import { checkAuthState, logout } from "./js/login.js";
             
