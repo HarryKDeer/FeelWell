@@ -22,6 +22,8 @@ body {
 p {
     text-align: left;
     color: #6f612f;
+    /*color: #ffffff;*/
+
 }
 
 p.footer {
@@ -122,15 +124,17 @@ footer a {
     width: 90%;
     max-width: 1200px;
     margin: 20px auto;
-    background: white;
+    background: #75d172; /* Match background color */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #6f612f; /* Text color to contrast with the background */
 }
 
 .header {
     text-align: center;
     margin-bottom: 20px;
+    color: #6f612f; /* Text color to match the schedule container */
 }
 
 .schedule {
@@ -140,10 +144,12 @@ footer a {
 }
 
 .day {
-    background: #eaeaea;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     padding: 10px;
     border-radius: 5px;
     text-align: center;
+    color: #6f612f; /* Text color to contrast with the background */
+    border: 1px solid #4a6f41; /* Border color to match the theme */
 }
 
 .day h2 {
@@ -151,14 +157,15 @@ footer a {
 }
 
 .event {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
     margin: 5px 0;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #4a6f41; /* Border color to match the theme */
     border-radius: 4px;
+    color: #fff; /* Text color to contrast with the background */
 }
 
-/* Delete Button Styles*/
+/* Delete Button Styles */
 .delete-btn {
     background: #ff4d4d;
     border: none;
@@ -174,7 +181,7 @@ footer a {
     background: #ff1a1a;
 }
 
-/* Footer Styles*/
+/* Footer Styles */
 .footer-logo {
     width: 100px;  /* Adjust width as needed */
     height: auto;  /* Maintains the aspect ratio */
