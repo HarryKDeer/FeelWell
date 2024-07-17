@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>FeelWell</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css"/>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+
+</head>
+<body>
+    <nav id="navbarID" class="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="media/BigLogo.png" alt="logo" width="25%">
+                </a>
+            </div>
+            <div class="main-menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="quests.html">Questboard</a></li>
+                    <li><a href="schedule.html">Schedule</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="grid-container">
+        <div class="grid-item item1">
+            <p id="profileName">Joshua S.</p>
+            <p id="titleName">The Mom</p>
+            <img id="selectedImg" src="media/knight.png" alt="Selected Profile Picture" style="width:300px; height:auto;">
+            <button onclick="toggleGallery()">Change Profile Picture</button>
+			
+			<div class="name-change-container">
+                <input type="text" id="nameInput" placeholder="Enter new name">
+                <button onclick="updateName()">Update Name</button>
+            </div>
+
+			<div class="title-change-container">
+                <input type="text" id="titleInput" placeholder="Enter new title">
+                <button onclick="updateTitle()">Update Title</button>
+            </div>
+		</div>
+        <div class="grid-item item2">
+            <img src="media/badge.png" width="125" height="125">
+        </div>
+        <div class="grid-item item3">
+            <p>Health</p>
+            <div class="health-bar">
+                <div class="health" style="width: 80%;">80%</div>
+            </div>
+            <p>Skill Experience</p>
+            <div class="experience-bar">
+                <div class="Experience" style="width: 80%;">100%</div>
+            </div>
+            <p>Skill Level: <span id="skillLevel">1</span></p>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="toggleGallery()"></div>
+
+    <div class="image-gallery-container" id="imageGalleryContainer">
+        <h2>Select Your Profile Picture</h2>
+        <div id="imageGallery">
+            <img src="media/knight.png" alt="Knight" class="selectable-image">
+            <img src="media/rogue.png" alt="Rogue" class="selectable-image">
+            <img src="media/wizard.png" alt="Wizard" class="selectable-image">
+			<img src="media/archer.png" alt="archer" class="selectable-image">
+			<img src="media/lycanthrope.png" alt="lycanthrope" class="selectable-image">
+        </div>
+    </div>
+
+    <footer>
+        <div class="footerColumns">
+            <img class="footer-logo" src="media/Logo.png" alt="Footer-Logo">
+            <p class="footer">Site design / Features © 2024 - Present, FeelWell Team</p>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="quests.html">Quests</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/profile.js"></script>
+    <script type="text/javascript" src="js/sample.js"></script>
+</body>
+</html>	

@@ -5,10 +5,8 @@
         <script type="text/javascript" src="js/database.js"></script>
     </head>
     <body>
-        <h1>PHP Test Page for FeelWell</h1>
-
-        
-        <!-- <p>Press the button to get the info for the given user:</p>
+        <h1>PHP Test Page for FeelWell</h1> 
+        <p>Press the button to get the info for the given user:</p>
         <input type="text" id="user"></input> 
         <button onclick="getUserInfo()">Push Me</button>
         <div id="name"></div>
@@ -16,17 +14,48 @@
         <div id="password"></div>
         <div id="score"></div>
         <div id="lastonline"></div>
-        <br> -->
-
-
-
         <br>
+
+        Username <input type="text" id="user2"></input> <br>
+        New Value <input type="text" id="newValue"></input> <br>
+        Content Type <input type="text" id="contentType"></input> 
+        <button onclick="changeValue()">Push Me</button>
+
+        <script>
+            function changeValue(){
+                user = document.getElementById("user2").value;
+                newValue = document.getElementById("newValue").value;
+                contentType = document.getElementById("contentType").value;
+
+                changeUserContent(user, newValue, contentType);
+            }
+        </script>
+
+        <!-- 
         <p>Press the button to create a new user:</p>
         Username <input type="text" id="user"></input> <br>
         Email <input type="text" id="email"></input> <br>
         Password <input type="text" id="password"></input>
         <button onclick="createUser()">Push Me</button>
         <div id="response"></div>
+        <div id="error"></div> -->
+
+        <!--<p>Press the button to see user's score:</p>
+        Username <input type="text" id="user"></input> <br>
+        <button onclick="checkUserScore()">Push Me</button>
+        <div id="userScore"></div>
         <div id="error"></div>
+
+        <script>
+            const prom = getUserScore("foo");
+
+            (prom && prom.then(score =>document.getElementById("userScore").innerHTML = score))
+
+            function checkUserScore(){
+                //user = document.getElementById("user");
+
+                document.getElementById("userScore").innerHTML = getUserScore();
+            }
+        </script>-->
     </body>
 </html>

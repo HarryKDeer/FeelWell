@@ -21,6 +21,7 @@
 	</head>
 
 	<body>
+
 		<img class = "bigLogo" source="media/bigLogo.png">
 
 		<nav id="navbarID" class="navbar">
@@ -44,6 +45,9 @@
 						</li>
 						<li>
 							<a href="profile.html">Profile</a>
+						</li>
+						<li>
+							<a onclick="logout()">Logout</a>
 						</li>
 					</ul>
 				</div>
@@ -227,7 +231,13 @@
 		</footer>
 
 		<script src = "js/quests.js"></script>
-		<script type="text/javascript" src="js/sample.js"></script>
+		<script type = "module">
+            import { checkAuthState, logout } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.checkAuthState = checkAuthState;
+			window.logout = logout;
+        </script>
 	</body>
 
 	

@@ -18,16 +18,23 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
 		
 		<link rel="stylesheet" href="css/sample.css"/>
 
 		<link rel="shortcut icon" href="media/favicon.ico?" type="image/x-icon"/>
-
-		
+		<script type="text/javascript" src="js/homepage.js"></script>
+		<script type = "module">
+            import { checkAuthState, logout } from "./js/login.js";
+            
+            // Attach functions to the global window object
+            window.checkAuthState = checkAuthState;
+			window.logout = logout;
+        </script>
 	</head>
 	<body>
-
 		<img class = "bigLogo" src="media/bigLogo.png">
 
 		<nav id="navbarID" class="navbar">
@@ -52,16 +59,37 @@
 						<li>
 							<a href="profile.html">Profile</a>
 						</li>
+						<li>
+							<a onclick="logout()">Logout</a>
+						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
 
 		<div class="stripe">
-			<p>
-				Boom
-			</p>
-			<h1 style ="font-size: large;"> THis is a header</h1>
+			<div id="fadeID1" class="fadein1">
+				<div class="introHeader">
+					<h1 class="introHeader">Welcome to the World of FeelWell</h1>
+					<hr id= "line1" class="intro">
+				</div>
+			</div>
+
+			<div id="fadeID2" class="fadein2">
+				<div id="introColumns" class="introColumns">
+					<div class="layeredImages">
+						<img class="portrait" src="media/logo.png" alt="Logo">
+					</div>
+					<div class="introduction">
+						<p class="intro"><span style="font-size:40px; font-style:italic; text-decoration: underline;">Your self improvement journey begins now!</span> <br>
+							The world of FeelWell is under attack! But this time, it is not a traditional enemy. Rather,
+							the threat manifests itself from within as a plague, and doesn't discriminate between noble heroes
+							and promising peasantry. Take your health into your hands and grow more powerful both in real life
+							and this fantasy world!
+						</p>
+					</div>
+				</div>
+			</div>
 		</div>
 		
 		
@@ -85,11 +113,10 @@
 					<li>
 						<a href="profile.html">Profile</a>
 					</li>
+					
 				</ul>
 			</div>
 		</footer>
-
-		<script type="text/javascript" src="js/sample.js"></script>
 	</body>
 
 	
