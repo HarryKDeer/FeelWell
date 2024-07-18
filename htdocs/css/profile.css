@@ -1,4 +1,123 @@
-/*health bar*/
+/* Reset and Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background-color: #8be988;
+    background-image: url("bgElement.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position-y: -550px;
+}
+
+p {
+    text-align: left;
+    color: #6f612f;
+}
+
+p.footer {
+    text-align: center;
+    color: #7d7d7d;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #70d579;
+    padding: 0px 10%;
+    margin: 0px;
+    filter: drop-shadow(0px 5px 5px #5b9b52);
+    background: linear-gradient(90deg, rgba(68,102,64,1) 0%, rgba(80,121,74,1) 5%, rgba(80,121,74,1) 95%, rgba(68,102,64,1) 100%);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .main-menu ul {
+    display: flex;
+}
+
+.navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover {
+    color: #ffd438;
+    background-color: rgb(96, 167, 87);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Stripe Styles */
+.stripe {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 25px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
+    box-shadow: 1px 1px 1px 1px #5b9b52;
+    background-color: #75d172;
+    background-attachment: fixed;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(63, 81, 59);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer a {
+    color: #7d7d7d;
+}
+
+.footer ul li a {
+    padding: 10px 20px;
+    display: block;
+    transition: 0.5s;
+}
+
+.footerColumns {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    color: #555;
+    text-align: right;
+    padding-left: 5%;
+    padding-right: 5%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+/* Health Bar */
 .health-bar {
     width: 300px; /* Set the width of the health bar */
     height: 30px; /* Set the height of the health bar */
@@ -7,6 +126,7 @@
     border: 2px solid #000; /* Optional: Add a border for more definition */
     box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Shadow for 3D effect */
     overflow: hidden; /* Ensures the inner bar does not spill over the rounded corners */
+    margin-bottom: 10px; /* Add space below the health bar */
 }
 
 .health {
@@ -19,7 +139,7 @@
     box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3); /* Inner white glow for a glossy effect */
 }
 
-/*experience bar*/
+/* Experience Bar */
 .experience-bar {
     width: 300px; 
     height: 30px; 
@@ -27,7 +147,8 @@
     border-radius: 15px; 
     border: 2px solid #000; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    overflow: hidden; 
+    overflow: hidden;
+    margin-bottom: 10px; /* Add space below the experience bar */
 }
 
 .Experience {
@@ -40,12 +161,13 @@
     box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3); 
 }
 
+/* Footer Logo */
 .footer-logo {
     width: 100px;  /* Adjust width as needed */
     height: auto;  /* Maintains the aspect ratio */
 }
 
-/*image gallery*/
+/* Image Gallery */
 .image-gallery-container {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed position */
@@ -76,7 +198,7 @@
     z-index: 999; /* Below the gallery container */
 }
 
-/*name changer*/
+/* Name Changer */
 .name-change-container {
     margin-top: 20px;
 }
@@ -86,7 +208,7 @@
     margin-right: 10px;
 }
 
-/*title changer*/
+/* Title Changer */
 .title-change-container {
     margin-top: 20px;
 }
@@ -96,6 +218,7 @@
     margin-right: 10px;
 }
 
+/* Profile Name and Title */
 .profile-name, .profile-title {
     border: 2px solid #3a3a3a; /* Adjust border color to blend with the background */
     padding: 10px; /* Space between the text and the border */
@@ -107,4 +230,30 @@
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a slight shadow */
     font-family: 'Roboto', sans-serif; /* Ensure consistent font */
     font-size: 1.2em; /* Adjust font size */
+}
+
+/* Title Style*/
+.quests-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+    /* margin-bottom: 70px; */
+}
+
+.quest-font-image {
+    height: 100px;
+    justify-content: center;
+    align-items:center;
+    padding: 18px;
+    background-color: rgb(222, 184, 135);
+    border-radius: 10px;
+    margin-bottom: 12px;
+    box-shadow: 5px 5px rgb(205,170,125);
+}
+
+.wood-backdrop {
+    height: 100px;
+    background-color: transparent;
+    mix-blend-mode: multiply;
 }
