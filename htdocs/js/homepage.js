@@ -3,7 +3,7 @@ window.onload = _ => {
     let jsonProm = getTopTen();
 
     (jsonProm && jsonProm.then(json => {
-        const json = response.json.then(json =>  {
+        response.json().then(json =>  {
             for (var i = 1; i < 11; i++){
                 let obj = json[i - 1];
 
