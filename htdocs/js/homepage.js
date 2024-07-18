@@ -2,8 +2,8 @@ window.onload = _ => {
     //Get Leaderboard
     let jsonProm = getTopTen();
 
-    (jsonProm && jsonProm.then(json => {
-        response.json().then(json =>  {
+    (jsonProm && jsonProm.then(resp => {
+        resp.json().then(json =>  {
             for (var i = 1; i < 11; i++){
                 let obj = json[i - 1];
 
