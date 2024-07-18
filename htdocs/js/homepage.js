@@ -3,14 +3,15 @@ window.onload = _ => {
     let jsonProm = getTopTen();
 
     (jsonProm && jsonProm.then(json => {
-        for (var i = 1; i < 11; i++){
-            let obj = json[i - 1];
+        const json = response.json.then(json =>  {
+            for (var i = 1; i < 11; i++){
+                let obj = json[i - 1];
 
-            document.getElementById("leaderUser" + i).innerHTML = obj[i-1][0];
-            document.getElementById("leaderScore" + i).innerHTML = obj[i-1][1];
-        }}
-    ));
-
+                document.getElementById("leaderUser" + i).innerHTML = obj[0];
+                document.getElementById("leaderScore" + i).innerHTML = obj[1];
+            }
+        })
+    }));
 
     //Fancy Effects
     console.log("window loaded");
@@ -43,12 +44,12 @@ async function getTopTen(){
     
     url = website + `getTopTen.php`;
     console.log("url", url);
-    const response = fetch(url);
+    return response = fetch(url);
     if (!response)
     {
         throw new Error(`Response status: ${response.status}`);
     }
-    const json = response.json();
+    const json = await response.json();
     return json;
 }
 
