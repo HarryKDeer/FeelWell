@@ -31,6 +31,10 @@ const quotes = [
 
 
     "\"Life is what happens to you while you're busy making plans.\" \n- John Lennon",
+
+    "\"If you don’t take risks, you can’t create a future.\”\n- Monkey D. Luffy",
+    "\"Push through the pain. Giving up hurts more.\”\n- Vegeta",
+    "\"The future belongs to those who believe in the beauty of their dreams.\”\n- Shoyo Hinata",
 ];
 
 function displayRandomQuote() {
