@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     const eventForm = document.getElementById('eventForm');
     const schedule = document.querySelector('.schedule');
@@ -8,15 +7,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        
-        //set our constant values 
-        const day = document.getElementById('day').value;
-        const time = document.getElementById('time').value;
-        const ampm = document.getElementById('ampm').value;
-        const description = document.getElementById('description').value;
 
-        const formattedTime = formatTime(time, ampm);
-        const event = { day, time: formattedTime, description };
+        // Capture values from the form
+        const day = document.getElementById('day').value;
+        const hours = document.getElementById('hours').value;
+        const minutes = document.getElementById('minutes').value;
+        const ampm = document.getElementById('ampm').value;
+        const description = document.getElementById('description').value.trim();
+
+        // Validate time and description
+        if (!isValidTime(hours, minutes, ampm) || description === '') {
+            alert('Please enter a valid time and description.');
+            return;
+        }
+
+        const formattedTime = formatTime(hours, minutes, ampm);
+        const event = { day, time: formattedTime, description, completed: false };
 
         addEvent(event);
         saveEvent(event);
@@ -24,34 +30,53 @@ document.addEventListener('DOMContentLoaded', function() {
         eventForm.reset();
     });
 
-    function formatTime(time, ampm) {
-        let [hours, minutes] = time.split(':');
-        hours = parseInt(hours);
+    function isValidTime(hours, minutes, ampm) {
+        const hoursNum = parseInt(hours, 10);
+        const minutesNum = parseInt(minutes, 10);
+        return (
+            !isNaN(hoursNum) &&
+            hoursNum >= 1 &&
+            hoursNum <= 12 &&
+            !isNaN(minutesNum) &&
+            minutesNum >= 0 &&
+            minutesNum <= 59 &&
+            (ampm === 'AM' || ampm === 'PM')
+        );
+    }
 
-        // Adjust hours based on AM/PM
-        if (ampm === 'PM' && hours < 12) {
-            hours += 12;
-        } else if (ampm === 'AM' && hours === 12) {
-            hours = 0;
-        }
+    function formatTime(hours, minutes, ampm) {
+        hours = parseInt(hours, 10);
+        minutes = minutes.padStart(2, '0');
 
         // Format hours to 12-hour format
         const formattedHours = (hours % 12) || 12;
-        const formattedMinutes = minutes.padStart(2, '0');
 
-        return `${formattedHours}:${formattedMinutes} ${ampm}`;
+        return `${formattedHours}:${minutes} ${ampm}`;
     }
 
     function addEvent(event) {
         const dayElement = document.querySelector(`.day[data-day="${event.day}"]`);
-        
+
         if (dayElement) {
             const eventElement = document.createElement('div');
             eventElement.classList.add('event');
-            eventElement.innerHTML = `<p>${event.time} - ${event.description}</p><button class="delete-btn">Delete</button>`;
+            if (event.completed) {
+                eventElement.classList.add('completed');
+            }
+            eventElement.innerHTML = `
+                <input type="checkbox" ${event.completed ? 'checked' : ''}>
+                <p>${event.time} - ${event.description}</p>
+                <button class="delete-btn">Delete</button>
+            `;
             dayElement.appendChild(eventElement);
 
-            // Add event listener to the delete button
+            const checkbox = eventElement.querySelector('input[type="checkbox"]');
+            checkbox.addEventListener('change', function() {
+                event.completed = checkbox.checked;
+                eventElement.classList.toggle('completed', event.completed);
+                updateEvent(event);
+            });
+
             eventElement.querySelector('.delete-btn').addEventListener('click', function() {
                 eventElement.remove();
                 deleteEvent(event);
@@ -63,30 +88,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function saveEvent(event) {
         let events = localStorage.getItem('events');
-        // if event not null then parse the JSON string into a JS array
         if (!events) {
             events = [];
         } else {
             events = JSON.parse(events);
         }
         events.push(event);
-        //convert the JS array back into the JSON and store it to the localStorage 
         localStorage.setItem('events', JSON.stringify(events));
     }
 
     function loadEvents() {
-        //parses through the local storage and grabs the events then parses the JSON string into JS array
         const events = JSON.parse(localStorage.getItem('events'));
         if (events) {
-            //for each event, the function will add the event
             events.forEach(event => addEvent(event));
         }
     }
 
     function deleteEvent(eventToDelete) {
         let events = JSON.parse(localStorage.getItem('events'));
-        //helps filter our the events saved vs the ones that will be deleted (checks if values match up to the ones set to be deleted)
         events = events.filter(event => !(event.day === eventToDelete.day && event.time === eventToDelete.time && event.description === eventToDelete.description));
+        localStorage.setItem('events', JSON.stringify(events));
+    }
+
+    function updateEvent(updatedEvent) {
+        let events = JSON.parse(localStorage.getItem('events'));
+        events = events.map(event => {
+            if (event.day === updatedEvent.day && event.time === updatedEvent.time && event.description === updatedEvent.description) {
+                return updatedEvent;
+            }
+            return event;
+        });
         localStorage.setItem('events', JSON.stringify(events));
     }
 });
