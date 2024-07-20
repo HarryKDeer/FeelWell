@@ -30,9 +30,9 @@ function register(){
     createUser();
     
     // grabs user, email + password for authenication
-    const user = document.getElementById("reg_user").value;
-    const email = document.getElementById('reg_email').value;
-    const password = document.getElementById('reg_password').value;
+    const user = document.getElementById("user").value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
     const auth = getAuth();
 
@@ -57,20 +57,22 @@ function register(){
 // Set up Login function
 function login(){
     // Get input fields
-    const email = document.getElementById('log_email').value;
-    const password = document.getElementById('log_password').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
     // validate email + password
+
     /*
     if (!emailRegex.test(email)) {
         document.getElementById("error").innerHTML = "Invalid email";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
-    }else if (!password || password.length < 3) {
+    }else if (!password || password.length < 6) {
         document.getElementById("error").innerHTML = "Invalid password. Your password must be at least 3 characters long";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
     }
     */
+
     const auth = getAuth();
     // authenticate it's really the user
     signInWithEmailAndPassword(auth, email, password)
@@ -90,27 +92,31 @@ function login(){
         const errorMessage = error.message
   
         alert(errorMessage)
-        alert("u shitter")
     })
-
+    checkAuthState();
 
 }
 
 function logout() {
     const auth = getAuth();
-    signOut(auth)
-    .then(() => {
-        // Sign-out successful.
-        // Optionally, redirect to login page or update UI
-        // window.location.href = "login.html";
-        checkAuthState()
-        console.log("User signed out successfully");
-        alert("User signed out successfully")
-    })
-    .catch((error) => {
-        // An error happened.
-        console.error("Error signing out:", error);
-    });
+    if(auth.currentUser){
+        signOut(auth)
+        .then(() => {
+            // Sign-out successful.
+            // Optionally, redirect to login page or update UI
+            // window.location.href = "login.html";
+            //checkAuthState()
+            console.log("User signed out successfully");
+            alert("User signed out successfully")
+            window.location.href = "index.html"
+        })
+        .catch((error) => {
+            // An error happened.
+            console.error("Error signing out:", error);
+        });
+    } else {
+        console.log("No user is currently signed in");
+    }
 }
 
 function toggleForms() {
@@ -140,9 +146,35 @@ function checkAuthState() {
         // User is signed out
         // ...
         console.log("typeshit");
-        window.location.href = "login.html";
+        //window.location.href = "index.html";
     }
 });
 }
 
-export { register, login, toggleForms, checkAuthState, logout };
+function updateNavBar(){
+    const navItems = document.getElementById('navItems');
+    console.log("navbar");
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, show full navigation
+            navItems.innerHTML = `
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quests.html">Quests</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a onclick="logout()">Logout</a></li>
+            `;
+            document.getElementById('logoutButton').addEventListener('click', logout);
+            console.log("updated");
+        } else {
+            // No user is signed in, show only login button
+            navItems.innerHTML = `
+            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Join the Adventure!</a></li>
+            `;
+            console.log("not updated");
+        }
+    });
+}
+
+export { register, login, toggleForms, checkAuthState, logout, updateNavBar };
