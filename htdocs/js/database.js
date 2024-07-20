@@ -130,3 +130,33 @@ async function changeUserContent(user, newValue, contentType){
         console.log("An error has occurred. Value Has not been changed.");
     }
 }
+
+async function getEmailJson(email = document.getElementById("email").value) //You can pass either a variable in, or the function will get it itself
+{    
+    //PHP stuff
+    url = website + `getEmail.php?email=${email}`;
+    console.log("url", url);
+    const response = await fetch(url);
+    if (!response)
+    {
+        throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json();
+
+    //Naming your html elements these respective names will provide the relevant information regarding them
+    if (json){
+        document.getElementById("user").innerHTML = json.name;
+        return json; //Usually in the form of {email: , name: , password: , score: , lastonline: }
+    } else {
+        document.getElementById("error").innerHTML = "User does not exist";
+    }
+    
+    /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
+
+            const prom = getUserJson("foo");
+            (prom && prom.then(values =>document.getElementById("userScore").innerHTML = values.score))
+
+        this creates a variable that holds the promise. The promise gets checked if it is validated then the '.then()' function will
+        wait for the promise to resolve and execute the inline function creation (which is donated by the '=>')
+    */
+}
