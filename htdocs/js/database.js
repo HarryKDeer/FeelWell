@@ -160,3 +160,5 @@ async function getEmailJson(email = document.getElementById("email").value) //Yo
         wait for the promise to resolve and execute the inline function creation (which is donated by the '=>')
     */
 }
+
+export {createUser, getUserInfo};

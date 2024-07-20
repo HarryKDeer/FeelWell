@@ -213,3 +213,27 @@ footer a {
     background-color: transparent;
     mix-blend-mode: multiply;
 }
+
+/* Event styles */
+.event {
+    background: rgba(255, 255, 255, 0.2); /* Semi-transparent background */
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #4a6f41; /* Border color to match the theme */
+    border-radius: 4px;
+    color: #fff; /* Text color to contrast with the background */
+    display: flex; /* Flex layout for checkbox and text alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space between checkbox and delete button */
+}
+
+/* Checkbox styles */
+.event input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Completed event styles */
+.event.completed {
+    text-decoration: line-through;
+    opacity: 0.6;
+}

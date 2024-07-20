@@ -31,6 +31,10 @@ const quotes = [
 
 
     "\"Life is what happens to you while you're busy making plans.\" \n- John Lennon",
+
+    "\"If you don’t take risks, you can’t create a future.\”\n- Monkey D. Luffy",
+    "\"Push through the pain. Giving up hurts more.\”\n- Vegeta",
+    "\"The future belongs to those who believe in the beauty of their dreams.\”\n- Shoyo Hinata",
 ];
 
 function displayRandomQuote() {
@@ -42,6 +46,18 @@ function displayRandomQuote() {
 window.onload = displayRandomQuote;
 
 
+const QUEST_XP = {
+    0: 25, // Gym 5 times in week
+    1: 10, // Complete a workout 
+    2: 5,  // Read for 30 minutes
+    3: 15, // Learn a new skill
+    4: 10, // Clean the house 
+    5: 5,  // Go for a walk 
+    6: 10, // Try cooking a new healthy recipe 
+    7: 20, // Spend a day without checking social media 
+    8: 15  // Go some place new 
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const questSections = document.querySelectorAll('.quest-section');
 
@@ -50,17 +66,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const progressBar = section.querySelector('.progress-bar');
         const resetButton = section.querySelector('.reset-button');
         
+        const questXP = QUEST_XP[index] || 10;
+        
         let progress = parseInt(localStorage.getItem(`quest${index}Progress`)) || 0;
-        updateProgressBar(progressBar, progress);
+        updateProgressBar(progressBar, progress, questXP);
 
         icon.addEventListener('click', () => {
             if (progress < 100) {
                 const oldProgress = progress;
-                progress = 100; // Set progress to 100%
-                const xpGained = 100 - oldProgress; // Calculate XP gained
-                animateProgress(progressBar, oldProgress, progress, 1000, () => {
-                    showXPAnimation(progressBar, xpGained); // Show XP animation after progress bar is full
-                    updateProfileExperience(xpGained); // Update profile experience
+                progress = 100; 
+                animateProgress(progressBar, oldProgress, progress, 1000, questXP, () => {
+                    showXPAnimation(progressBar, questXP);
                 });
                 localStorage.setItem(`quest${index}Progress`, progress);
             }
@@ -68,20 +84,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (resetButton) {
             resetButton.addEventListener('click', () => {
-                const xpLost = progress; // Calculate XP lost
                 progress = 0;
-                updateProgressBar(progressBar, progress);
+                updateProgressBar(progressBar, progress, questXP);
                 localStorage.setItem(`quest${index}Progress`, progress);
-                decreaseProfileExperience(xpLost); // Decrease profile experience
             });
         }
     });
 });
 
-function updateProgressBar(progressBar, value) {
+function updateProgressBar(progressBar, value, maxXP) {
     value = Math.min(100, Math.max(0, value));
     progressBar.style.setProperty('--width', value);
-    progressBar.setAttribute('data-label', `${Math.round(value)}%`);
+    const currentXP = Math.round(value * maxXP / 100);
+    progressBar.setAttribute('data-label', `${currentXP}/${maxXP} XP`);
     
     if (value > 50) {
         progressBar.style.color = 'white';
@@ -90,13 +105,13 @@ function updateProgressBar(progressBar, value) {
     }
 }
 
-function animateProgress(progressBar, start, end, duration, callback) {
+function animateProgress(progressBar, start, end, duration, maxXP, callback) {
     let startTimestamp = null;
     const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
         const progress = Math.min((timestamp - startTimestamp) / duration, 1);
         const currentProgress = start + progress * (end - start);
-        updateProgressBar(progressBar, currentProgress);
+        updateProgressBar(progressBar, currentProgress, maxXP);
         if (progress < 1) {
             window.requestAnimationFrame(step);
         } else if (callback) {
@@ -166,3 +181,6 @@ function decreaseProfileExperience(xpLost) {
         profileExperienceBar.textContent = currentExperience + '%';
     }
 }
+
+
+

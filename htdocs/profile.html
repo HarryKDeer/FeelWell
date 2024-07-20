@@ -13,6 +13,12 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
 
+
+    <!-- Game-like pixel fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <nav id="navbarID" class="navbar">
@@ -25,9 +31,10 @@
             <div class="main-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="quests.html">Questboard</a></li>
+                    <li><a href="quests.html">Quests</a></li>
                     <li><a href="schedule.html">Schedule</a></li>
                     <li><a href="profile.html">Profile</a></li>
+                    <li><a onclick="logout()">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -41,31 +48,38 @@
         <div class="grid-item item1">
             <p id="profileName" class="profile-name">Joshua S.</p>
             <p id="titleName" class="profile-title">The Annihilator</p>
-            <img id="selectedImg" src="media/knight.png" alt="Selected Profile Picture" style="width:300px; height:auto;">
-            <button onclick="toggleGallery()">Change Profile Picture</button>
-			
+            <div class = "profile-container">
+                <div class = "profile-image">
+                    <img class = "profile-img" id="selectedImg" src="media/knight.png" alt="Selected Profile Picture">
+                </div>
+                <div class = "profile-button-changer">
+                    <button  class = "change-profile-button" onclick="toggleGallery()">Change Profile Picture</button>
+                </div>
+            </div>
 			<div class="title-change-container">
                 <input type="text" id="titleInput" placeholder="Enter new title">
-                <button onclick="updateTitle()">Update Title</button>
+                <button class = "update-title-button" onclick="updateTitle()">Update Title</button>
             </div>
 		</div>
         <div class="grid-item item2">
-            <img src="media/newHeightsLevel5.png" width="125" height="125">
-            <img src="media/newHeightsLevel10.png" width="125" height="125">
-            <img src="media/newHeightsLevel15.png" width="125" height="125">
-            <img src="media/newHeightsLevel20.png" width="125" height="125">
-            <img src="media/gettingBig.png" width="125" height="125">
+            <img class = "badge-image1" src="media/newHeightsLevel5.png" width="125" height="125">
+            <img class = "badge-image2" src="media/newHeightsLevel10.png" width="125" height="125">
+            <img class = "badge-image3" src="media/newHeightsLevel15.png" width="125" height="125">
+            <img class = "badge-image4" src="media/newHeightsLevel20.png" width="125" height="125">
+            <img class = "badge-image5" src="media/gettingBig.png" width="125" height="125">
         </div>
         <div class="grid-item item3">
-            <p>Health</p>
+            <p class = "profile-description" >Health:</p>
             <div class="health-bar">
+                <img class = "heart-icon" src = "media/heart.png">
                 <div class="health" style="width: 80%;">80%</div>
             </div>
-            <p>Skill Experience</p>
+            <p class = "profile-description" >Skill Experience:</p>
             <div class="experience-bar">
-                <div class="Experience" style="width: 0%;" id="experienceBar">0%</div>
+                <img class = "swords-icon" src = "media/swords.png">
+                <div class="Experience" id="experienceBar">0XP</div>
             </div>
-            <p>Skill Level: <span id="skillLevel">1</span></p>
+            <p class = "profile-description-level">Skill Level: <span id="skillLevel">1</span></p>
         </div>
     </div>
 
