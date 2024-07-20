@@ -47,14 +47,14 @@
         <div id="error"></div>
 
         <script>
-            const prom = getUserScore("foo");
+            const prom = getUserJson("foo");
 
             (prom && prom.then(score =>document.getElementById("userScore").innerHTML = score))
 
             function checkUserScore(){
                 //user = document.getElementById("user");
 
-                document.getElementById("userScore").innerHTML = getUserScore();
+                document.getElementById("userScore").innerHTML = getUserJson();
             }
         </script>-->
     </body>

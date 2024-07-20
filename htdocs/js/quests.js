@@ -5,6 +5,8 @@
 //     progressBar.computedStyleMap.setProperty('--width', width + .1)
 // }, 5)
 
+import { changeUserContent } from "./database";
+
 const quotes = [
 
 
@@ -166,6 +168,16 @@ function updateProfileExperience(xpGained) {
         profileExperienceBar.style.width = currentExperience + '%';
         profileExperienceBar.textContent = currentExperience + '%';
     }
+
+    // Update database
+    const user = localStorage.getItem("user");
+    const prom = getUserJson(user);
+
+    (prom && prom.then(values => { //Process promise
+        let score = values.score;
+        score += xpGained; 
+        changeUserContent(user, score, "score");
+    }))
 }
 
 function decreaseProfileExperience(xpLost) {
@@ -180,6 +192,16 @@ function decreaseProfileExperience(xpLost) {
         profileExperienceBar.style.width = currentExperience + '%';
         profileExperienceBar.textContent = currentExperience + '%';
     }
+
+    // Update database
+    const user = localStorage.getItem("user");
+    const prom = getUserJson(user);
+
+    (prom && prom.then(values => { //Process promise
+        let score = values.score;
+        score -= xpLost; 
+        changeUserContent(user, score, "score");
+    }))
 }
 
 
