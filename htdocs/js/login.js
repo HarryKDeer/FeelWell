@@ -34,6 +34,8 @@ function register(){
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
+    localStorage.setItem("user", user); //Save username to local storage
+
     const auth = getAuth();
 
 
@@ -95,6 +97,10 @@ function login(){
     })
     checkAuthState();
 
+    //Grab username through email
+    const json = getEmailJson(email);
+    const user = json.name;
+    localStorage.setItem("user", user); //and store to local storage
 }
 
 function logout() {
@@ -117,6 +123,8 @@ function logout() {
     } else {
         console.log("No user is currently signed in");
     }
+
+    localStorage.removeItem("user"); //Removes username from localstorage
 }
 
 function toggleForms() {
