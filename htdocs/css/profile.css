@@ -208,7 +208,7 @@ footer a {
     margin: 10px;
     cursor: pointer;
     border-radius: 10px;
-    background-color: red;
+    background-color: none;
 }
 
 .overlay {
@@ -414,7 +414,7 @@ footer a {
     grid-area: stats;
     /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94)); */
     box-shadow: inset 1px 2px 0px 1px rgb(245, 173, 114);
-    background-color: rgba(244,182,108,255);
+    background-color: rgba(244,182,108,255) !important;
     border: 8px solid rgba(185,84,1,255);
     border-style: ridge;
     border-radius: 10px;

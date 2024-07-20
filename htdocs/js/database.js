@@ -130,3 +130,5 @@ async function changeUserContent(user, newValue, contentType){
         console.log("An error has occurred. Value Has not been changed.");
     }
 }
+
+export {createUser, getUserInfo};
