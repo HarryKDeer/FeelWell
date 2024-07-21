@@ -170,8 +170,11 @@ function updateNavBar(){
             <li><a href="quests.html">Quests</a></li>
             <li><a href="schedule.html">Schedule</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a onclick="logout()" style=cursor:pointer;>Logout</a></li>
+            <li><div class="dropdown">
+            <a class="dropbtn" style = 'cursor:pointer'>aa</a>
+            <div class="dropdown-content"><a onclick="logout()" style= 'cursor:pointer;'>Logout</a></div></div></li>
             `;
+            setupDropdown();
             document.getElementById('logoutButton').addEventListener('click', logout);
             console.log("updated");
         } else {
@@ -182,6 +185,26 @@ function updateNavBar(){
             console.log("not updated");
         }
     });
+}
+
+function setupDropdown() {
+    const dropbtn = document.querySelector('.dropbtn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    if (dropbtn && dropdownContent) {
+        dropbtn.addEventListener('click', function() {
+            dropdownContent.classList.toggle('show');
+        });
+
+        // Close the dropdown if clicked outside
+        window.addEventListener('click', function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                if (dropdownContent.classList.contains('show')) {
+                    dropdownContent.classList.remove('show');
+                }
+            }
+        });
+    }
 }
 
 export { register, login, toggleForms, checkAuthState, logout, updateNavBar };
