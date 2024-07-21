@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load events from localStorage
     loadEvents();
 
-<<<<<<< HEAD
     addEventBtn.addEventListener('click', () => {
       document.getElementById('eventPopup').style.display = 'block';
     });
@@ -38,17 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
       eventPopup.style.display = 'none';
     });
 
-    // // This will listen for the click event on the "Add Event" button
-    // schedule.addEventListener('click', (e) => {
-    //   if (e.target.classList.contains('add-event-btn')) {
-    //     const day = e.target.dataset.day;
-    //     showEventPopup(day);
-    //   }
-    // });
-=======
     // Highlight the current day
     highlightCurrentDay();
->>>>>>> 0137a292965b4c365d4f540cce3751059f64dc91
 
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
