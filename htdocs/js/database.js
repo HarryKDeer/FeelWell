@@ -57,9 +57,9 @@ async function getUserJson(user = document.getElementById("user").value) //You c
 async function createUser()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user
-    user = document.getElementById("user").value; //This will grab the input within the html element named "user"
-    email = document.getElementById("email").value; //This will grab the input within the html element named "email"
-    password = document.getElementById("password").value; //This will grab the input within the html element named "password"
+    let user = document.getElementById("reg_user").value; //This will grab the input within the html element named "user"
+    let email = document.getElementById("reg_email").value; //This will grab the input within the html element named "email"
+    let password = document.getElementById("reg_password").value; //This will grab the input within the html element named "password"
 
     //This uses regular expressions to prevents the user from injecting HTML code into the database
     let userRegex = new RegExp('^[a-zA-Z]+[a-zA-Z0-9_-]*$'); 
@@ -77,9 +77,6 @@ async function createUser()
         document.getElementById("error").innerHTML = "Invalid password. Your password must be at least 3 characters long";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
-    } else {
-        document.getElementById("error").innerHTML = "";
-        document.getElementById("response").innerHTML = "";
     }
 
     //PHP stuff
@@ -131,4 +128,34 @@ async function changeUserContent(user, newValue, contentType){
     }
 }
 
-export {createUser, getUserInfo};
+async function getEmailJson(email = document.getElementById("email").value) //You can pass either a variable in, or the function will get it itself
+{    
+    //PHP stuff
+    url = website + `getEmail.php?email=${email}`;
+    console.log("url", url);
+    const response = await fetch(url);
+    if (!response)
+    {
+        throw new Error(`Response status: ${response.status}`);
+    }
+    const json = await response.json();
+
+    //Naming your html elements these respective names will provide the relevant information regarding them
+    if (json){
+        document.getElementById("user").innerHTML = json.name;
+        return json; //Usually in the form of {email: , name: , password: , score: , lastonline: }
+    } else {
+        document.getElementById("error").innerHTML = "User does not exist";
+    }
+    
+    /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
+
+            const prom = getUserJson("foo");
+            (prom && prom.then(values =>document.getElementById("userScore").innerHTML = values.score))
+
+        this creates a variable that holds the promise. The promise gets checked if it is validated then the '.then()' function will
+        wait for the promise to resolve and execute the inline function creation (which is donated by the '=>')
+    */
+}
+
+export {createUser, getUserInfo, getUserJson, changeUserContent, getEmailJson};

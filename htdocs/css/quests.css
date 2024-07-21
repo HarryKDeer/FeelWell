@@ -94,7 +94,7 @@ body{
 
 
 
-/* .progress-bar{
+ .progress-bar{
     margin-top: 0px; 
     width: 300px;
     --width: 1;
@@ -141,7 +141,7 @@ body{
     align-items: center;
     color: black;
     font-weight: bold;
-} */
+} 
 
 .progress-bar {
     margin-top: 0px; 

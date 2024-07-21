@@ -72,14 +72,14 @@
             <p class = "profile-description" >Health:</p>
             <div class="health-bar">
                 <img class = "heart-icon" src = "media/heart.png">
-                <div class="health" style="width: 80%;">80%</div>
+                <div class="health" id="healthBar">100%</div>
             </div>
             <p class = "profile-description" >Skill Experience:</p>
             <div class="experience-bar">
                 <img class = "swords-icon" src = "media/swords.png">
                 <div class="Experience" id="experienceBar">0XP</div>
             </div>
-            <p class = "profile-description-level">Skill Level: <span id="skillLevel">1</span></p>
+            <p class = "profile-description-level">Skill Level: <span id="skillLevel"></span></p>
         </div>
     </div>
 
@@ -95,6 +95,8 @@
 			<img src="media/lycanthrope.png" alt="lycanthrope" class="selectable-image">
         </div>
     </div>
+
+    <input type="hidden" id="user" value="currentUser"> <!-- Hidden user input -->
 
     <footer>
         <div class="footerColumns">

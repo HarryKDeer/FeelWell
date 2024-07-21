@@ -30,9 +30,11 @@ function register(){
     createUser();
     
     // grabs user, email + password for authenication
-    const user = document.getElementById("user").value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const user = document.getElementById("reg_user").value;
+    const email = document.getElementById('reg_email').value;
+    const password = document.getElementById('reg_password').value;
+
+    localStorage.setItem("user", user); //Save username to local storage
 
     const auth = getAuth();
 
@@ -57,8 +59,8 @@ function register(){
 // Set up Login function
 function login(){
     // Get input fields
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('log_email').value;
+    const password = document.getElementById('log_password').value;
     // validate email + password
 
     /*
@@ -95,6 +97,10 @@ function login(){
     })
     checkAuthState();
 
+    //Grab username through email
+    const json = getEmailJson(email);
+    const user = json.name;
+    localStorage.setItem("user", user); //and store to local storage
 }
 
 function logout() {
@@ -117,6 +123,8 @@ function logout() {
     } else {
         console.log("No user is currently signed in");
     }
+
+    localStorage.removeItem("user"); //Removes username from localstorage
 }
 
 function toggleForms() {
