@@ -1,3 +1,5 @@
+import { changeUserContent, getUserJson } from "./database";
+
 const quotes = [
 
 
@@ -74,6 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
                 localStorage.setItem(`quest${index}Progress`, progress);
             }
+            updateDB(questXP);
         });
 
         if (resetButton) {
@@ -83,9 +86,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 localStorage.setItem(`quest${index}Progress`, progress);
                 decreaseProfileExperience(questXP); // Decrease profile experience
             });
+            updateDB(-questXP);
         }
     });
 });
+
+function updateDB(changeBy){
+    const user = localStorange.getItem("user");
+    const prom = getUserJson(user);
+
+    (prom && prom.then(userJson =>{
+        newScore = userJson.score + changeBy;
+        changeUserContent(user, newScore, "score");
+    }))
+}
 
 function updateProgressBar(progressBar, value, maxXP) {
     value = Math.min(100, Math.max(0, value));
