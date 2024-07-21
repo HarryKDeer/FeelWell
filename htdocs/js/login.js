@@ -30,9 +30,9 @@ function register(){
     createUser();
     
     // grabs user, email + password for authenication
-    const user = document.getElementById("user").value;
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const user = document.getElementById("reg_user").value;
+    const email = document.getElementById('reg_email').value;
+    const password = document.getElementById('reg_password').value;
 
     localStorage.setItem("user", user); //Save username to local storage
 
@@ -59,8 +59,8 @@ function register(){
 // Set up Login function
 function login(){
     // Get input fields
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const email = document.getElementById('log_email').value;
+    const password = document.getElementById('log_password').value;
     // validate email + password
 
     /*
