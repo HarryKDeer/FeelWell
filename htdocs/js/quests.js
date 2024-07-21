@@ -1,12 +1,3 @@
-// const progressBar = document.getElementsByClassName('progress-bar')[0]
-// setInterval(() => {
-//     const computedStyle = getComputedStyle(progressBar)
-//     const width = parseFloat(computedStlye.getPropertyValue('--width')) || 0
-//     progressBar.computedStyleMap.setProperty('--width', width + .1)
-// }, 5)
-
-import { changeUserContent } from "./database";
-
 const quotes = [
 
 
@@ -79,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 progress = 100; 
                 animateProgress(progressBar, oldProgress, progress, 1000, questXP, () => {
                     showXPAnimation(progressBar, questXP);
+                    updateProfileExperience(questXP); // Update profile experience
                 });
                 localStorage.setItem(`quest${index}Progress`, progress);
             }
@@ -89,6 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 progress = 0;
                 updateProgressBar(progressBar, progress, questXP);
                 localStorage.setItem(`quest${index}Progress`, progress);
+                decreaseProfileExperience(questXP); // Decrease profile experience
             });
         }
     });
@@ -168,18 +161,7 @@ function updateProfileExperience(xpGained) {
         profileExperienceBar.style.width = currentExperience + '%';
         profileExperienceBar.textContent = currentExperience + '%';
     }
-
-    // Update database
-    const user = localStorage.getItem("user");
-    const prom = getUserJson(user);
-
-    (prom && prom.then(values => { //Process promise
-        let score = values.score;
-        score += xpGained; 
-        changeUserContent(user, score, "score");
-    }))
 }
-
 function decreaseProfileExperience(xpLost) {
     let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
     currentExperience -= xpLost;
@@ -192,17 +174,4 @@ function decreaseProfileExperience(xpLost) {
         profileExperienceBar.style.width = currentExperience + '%';
         profileExperienceBar.textContent = currentExperience + '%';
     }
-
-    // Update database
-    const user = localStorage.getItem("user");
-    const prom = getUserJson(user);
-
-    (prom && prom.then(values => { //Process promise
-        let score = values.score;
-        score -= xpLost; 
-        changeUserContent(user, score, "score");
-    }))
 }
-
-
-

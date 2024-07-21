@@ -57,9 +57,9 @@ async function getUserJson(user = document.getElementById("user").value) //You c
 async function createUser()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user
-    user = document.getElementById("user").value; //This will grab the input within the html element named "user"
-    email = document.getElementById("email").value; //This will grab the input within the html element named "email"
-    password = document.getElementById("password").value; //This will grab the input within the html element named "password"
+    let user = document.getElementById("reg_user").value; //This will grab the input within the html element named "user"
+    let email = document.getElementById("reg_email").value; //This will grab the input within the html element named "email"
+    let password = document.getElementById("reg_password").value; //This will grab the input within the html element named "password"
 
     //This uses regular expressions to prevents the user from injecting HTML code into the database
     let userRegex = new RegExp('^[a-zA-Z]+[a-zA-Z0-9_-]*$'); 
@@ -77,9 +77,6 @@ async function createUser()
         document.getElementById("error").innerHTML = "Invalid password. Your password must be at least 3 characters long";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
-    } else {
-        document.getElementById("error").innerHTML = "";
-        document.getElementById("response").innerHTML = "";
     }
 
     //PHP stuff
