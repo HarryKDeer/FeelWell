@@ -1,9 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
     const eventForm = document.getElementById('eventForm');
     const schedule = document.querySelector('.schedule');
+    // Get the button element
+    const addEventBtn = document.querySelector('.add-event-btn');
 
     // Load events from localStorage
     loadEvents();
+
+    addEventBtn.addEventListener('click', () => {
+      document.getElementById('eventPopup').style.display = 'block';
+    });
 
     // Popup Form Submission Handler
     popupEventForm.addEventListener('submit', (e) => {
@@ -31,6 +37,14 @@ document.addEventListener('DOMContentLoaded', function() {
       eventPopup.style.display = 'none';
     });
 
+    // // This will listen for the click event on the "Add Event" button
+    // schedule.addEventListener('click', (e) => {
+    //   if (e.target.classList.contains('add-event-btn')) {
+    //     const day = e.target.dataset.day;
+    //     showEventPopup(day);
+    //   }
+    // });
+
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -55,13 +69,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         eventForm.reset();
     });
-
-  function openPopup() {
-    document.getElementById('eventPopup').style.display = 'block';
-  }
-  function closePopup() {
-    document.getElementById('eventPopup').style.display = 'none';
-  }
 
     function isValidTime(hours, minutes, ampm) {
         const hoursNum = parseInt(hours, 10);
@@ -152,5 +159,12 @@ document.addEventListener('DOMContentLoaded', function() {
             return event;
         });
         localStorage.setItem('events', JSON.stringify(events));
+    }
+
+    function openPopup() {
+      document.getElementById('eventPopup').style.display = 'block';
+    }
+    function closePopup() {
+      document.getElementById('eventPopup').style.display = 'none';
     }
 });

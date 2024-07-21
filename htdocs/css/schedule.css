@@ -189,7 +189,7 @@ footer a {
 }
 
 .popup {
-  display: block; /* Initially hidden */
+  display: none; /* Initially hidden */
   position: relative; /* Position relative to the button */
   top: 2%; /* Below the button */
   left:0;
