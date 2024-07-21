@@ -1,5 +1,3 @@
-const website = '../php/';
-
 async function getUserInfo()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user
