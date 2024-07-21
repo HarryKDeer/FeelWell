@@ -38,10 +38,9 @@ async function getUserJson(user = document.getElementById("user").value) //You c
 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
-        document.getElementById("userScore").innerHTML = json.score;
         return json; //Usually in the form of {name: , email: , password: , score: , lastonline: }
     } else {
-        document.getElementById("error").innerHTML = "User does not exist";
+        console.log("User does not exist");
     }
     
     /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
@@ -142,10 +141,9 @@ async function getEmailJson(email = document.getElementById("email").value) //Yo
 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
-        document.getElementById("user").innerHTML = json.name;
         return json; //Usually in the form of {email: , name: , password: , score: , lastonline: }
     } else {
-        document.getElementById("error").innerHTML = "User does not exist";
+        console.log("User does not exist");
     }
     
     /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
