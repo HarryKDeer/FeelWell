@@ -84,7 +84,6 @@ function login(){
         
         //window.location.href = "index.html"
         console.log("it work");
-        alert("it not working")
         window.location.href = "index.html"
         // ...
       })
@@ -171,14 +170,14 @@ function updateNavBar(){
             <li><a href="quests.html">Quests</a></li>
             <li><a href="schedule.html">Schedule</a></li>
             <li><a href="profile.html">Profile</a></li>
-            <li><a onclick="logout()">Logout</a></li>
+            <li><a onclick="logout()" style=cursor:pointer;>Logout</a></li>
             `;
             document.getElementById('logoutButton').addEventListener('click', logout);
             console.log("updated");
         } else {
             // No user is signed in, show only login button
             navItems.innerHTML = `
-            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Join the Adventure!</a></li>
+            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor:pointer;">Join the Adventure!</a></li>
             `;
             console.log("not updated");
         }

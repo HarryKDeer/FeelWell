@@ -62,7 +62,7 @@ async function createUser()
     let password = document.getElementById("reg_password").value; //This will grab the input within the html element named "password"
 
     //This uses regular expressions to prevents the user from injecting HTML code into the database
-    let userRegex = new RegExp('^[a-zA-Z]+[a-zA-Z0-9_-]*$'); 
+    let userRegex = new RegExp('^[a-zA-Z]+[a-zA-Z0-9_-]{1,25}*$'); 
     let emailRegex = new RegExp('[a-z0-9]+@[a-z]+.[a-z]{2,3}'); //This ensures that this is a valid email address
 
     if (!userRegex.test(user)){
