@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const prom = getUserJson(localStorage.getItem("user"));
         (prom && prom.then(userJson =>{  
             updateExperience(userJson.score || 0);
-            titleName.textContent = userJson.name;
+            document.getElementById("profileName") = userJson.name;
         }))
     }
 
