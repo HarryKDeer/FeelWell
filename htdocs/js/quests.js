@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateDB(changeBy){
-    const user = localStorange.getItem("user");
+    const user = localStorage.getItem("user");
     const prom = getUserJson(user);
 
     (prom && prom.then(userJson =>{
