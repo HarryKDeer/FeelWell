@@ -177,6 +177,7 @@ footer a {
     font-size: 12px;
 }
 
+/*This is the styling for the popup form that appears when the add event button is clicked*/
 .day-submit-button {
     background: #ECC956;
     border: none;

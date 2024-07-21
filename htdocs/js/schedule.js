@@ -160,11 +160,4 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         localStorage.setItem('events', JSON.stringify(events));
     }
-
-    function openPopup() {
-      document.getElementById('eventPopup').style.display = 'block';
-    }
-    function closePopup() {
-      document.getElementById('eventPopup').style.display = 'none';
-    }
 });
