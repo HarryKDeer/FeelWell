@@ -5,6 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load events from localStorage
     loadEvents();
 
+    // Highlight the current day
+    highlightCurrentDay();
+
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -29,6 +32,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         eventForm.reset();
     });
+
+    function highlightCurrentDay() {
+        const days = document.querySelectorAll('.day');
+        const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+
+        days.forEach(day => {
+            if (day.getAttribute('data-day') === currentDay) {
+                day.classList.add('current-day');
+            }
+        });
+    }
 
     function isValidTime(hours, minutes, ampm) {
         const hoursNum = parseInt(hours, 10);

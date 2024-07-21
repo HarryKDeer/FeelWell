@@ -18,7 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             name: titleName.textContent,
             imageUrl: selectedImg.src,
             experience: parseInt(document.getElementById('experienceBar').style.width),
-            health: parseInt(document.querySelector('.health').style.width)
+            health: parseInt(document.querySelector('.health').style.width),
+            skillLevel: parseInt(document.getElementById('skillLevel').textContent)
         };
         localStorage.setItem('profile', JSON.stringify(profileData));
     }
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
             selectedImg.src = profileData.imageUrl;
             updateExperience(profileData.experience);
             updateHealth(profileData.health);
+            updateSkillLevel(profileData.skillLevel);
         }
         updateExperience(localStorage.getItem('profileExperience') || 0);
     }
@@ -43,17 +45,45 @@ document.addEventListener('DOMContentLoaded', function() {
     function updateExperience(newExperience) {
         const experienceBar = document.getElementById('experienceBar');
         experienceBar.style.width = newExperience + '%';
-        experienceBar.textContent = newExperience + '%';
+        experienceBar.textContent = newExperience + 'XP';
+    }
+
+    function updateSkillLevel(newLevel) {
+        const skillLevel = document.getElementById('skillLevel');
+        skillLevel.textContent = newLevel;
     }
 
     function addExperience(points) {
-        let currentExperience = parseInt(document.getElementById('experienceBar').style.width);
+        let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+        let currentSkillLevel = parseInt(skillLevelElement.textContent) || 1;
         currentExperience += points;
-        if (currentExperience > 100) {
-            currentExperience = 100; // Cap the experience at 100%
+    
+        // Update skill level if experience exceeds 100
+        if (currentExperience >= 100) {
+            currentSkillLevel += Math.floor(currentExperience / 100);
+            currentExperience = currentExperience % 100;
+            skillLevelElement.textContent = currentSkillLevel;
+            localStorage.setItem('profileSkillLevel', currentSkillLevel); // Save the skill level
         }
+    
+        console.log('Current Experience:', currentExperience);
+        console.log('Current Skill Level:', currentSkillLevel);
+    
         updateExperience(currentExperience);
+        localStorage.setItem('profileExperience', currentExperience);
         saveProfile();
+    
+        // Update the experience in the database
+        updateExperienceInDatabase(currentExperience);
+    }
+    
+    async function updateExperienceInDatabase(experience) {
+        const user = document.getElementById("user").value; // Assuming you have a user element or adjust as needed
+        try {
+            await changeUserContent(user, experience, "score");
+        } catch (error) {
+            console.error('Failed to update experience in database:', error);
+        }
     }
 
     window.completeQuest = function(points) {
@@ -84,3 +114,39 @@ function toggleGallery() {
         overlay.style.display = 'none';
     }
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Load the current profile experience from localStorage
+    let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+    updateExperienceBar(currentExperience);
+
+    function updateExperienceBar(experience) {
+        const experienceBar = document.getElementById('experienceBar');
+        experienceBar.style.width = experience + '%';
+        experienceBar.textContent = experience + 'XP';
+    }
+
+    window.updateProfileExperience = function(xpGained) {
+        let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+        currentExperience += xpGained;
+        if (currentExperience >= 100) {
+            currentExperience = 0; // Reset experience after leveling up
+            const skillLevel = parseInt(localStorage.getItem('profileSkillLevel')) || 1;
+            localStorage.setItem('profileSkillLevel', skillLevel + 1); // Increment skill level
+        }
+        localStorage.setItem('profileExperience', currentExperience);
+        updateExperienceBar(currentExperience);
+
+        const skillLevelElement = document.getElementById('skillLevel');
+        skillLevelElement.textContent = localStorage.getItem('profileSkillLevel') || 1;
+    };
+
+    window.decreaseProfileExperience = function(xpLost) {
+        let currentExperience = parseInt(localStorage.getItem('profileExperience')) || 0;
+        currentExperience -= xpLost;
+        if (currentExperience < 0) currentExperience = 0; // Cap at 0%
+        localStorage.setItem('profileExperience', currentExperience);
+        updateExperienceBar(currentExperience);
+    };
+});
