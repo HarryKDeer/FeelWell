@@ -1,12 +1,54 @@
 document.addEventListener('DOMContentLoaded', function() {
     const eventForm = document.getElementById('eventForm');
     const schedule = document.querySelector('.schedule');
+    // Get the button element
+    const addEventBtn = document.querySelector('.add-event-btn');
 
     // Load events from localStorage
     loadEvents();
 
+<<<<<<< HEAD
+    addEventBtn.addEventListener('click', () => {
+      document.getElementById('eventPopup').style.display = 'block';
+    });
+
+    // Popup Form Submission Handler
+    popupEventForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const day = document.getElementById('day').value;
+      const hours = document.getElementById('hours').value;
+      const minutes = document.getElementById('minutes').value;
+      const ampm = document.getElementById('ampm').value;
+      const description = document.getElementById('description').value.trim();
+
+      // Validation (add your logic here)
+      if (!isValidTime(hours, minutes, ampm) || description === '') {
+          alert('Please enter a valid time and description.');
+          return;
+      }
+
+      const formattedTime = formatTime(hours, minutes, ampm);
+      const event = { day, time: formattedTime, description, completed: false };
+
+      addEvent(event);
+      saveEvent(event);
+
+      // Close the popup (you might add a transition here for smoothness)
+      eventPopup.style.display = 'none';
+    });
+
+    // // This will listen for the click event on the "Add Event" button
+    // schedule.addEventListener('click', (e) => {
+    //   if (e.target.classList.contains('add-event-btn')) {
+    //     const day = e.target.dataset.day;
+    //     showEventPopup(day);
+    //   }
+    // });
+=======
     // Highlight the current day
     highlightCurrentDay();
+>>>>>>> 0137a292965b4c365d4f540cce3751059f64dc91
 
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
