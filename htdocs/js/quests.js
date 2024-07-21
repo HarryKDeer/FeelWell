@@ -1,4 +1,4 @@
-import { changeUserContent, getUserJson } from "./database";
+import { changeUserContent, getUserJson } from "./database.js";
 
 const quotes = [
 
