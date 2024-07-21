@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function updateDB(changeBy){
-    const user = localStorange.getItem("user");
+    const user = localStorage.getItem("user");
     const prom = getUserJson(user);
 
     (prom && prom.then(userJson =>{
-        newScore = userJson.score + changeBy;
+        let newScore = Number(userJson.score) + Number(changeBy);
         changeUserContent(user, newScore, "score");
     }))
 }
