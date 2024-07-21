@@ -34,7 +34,7 @@
                     <li><a href="quests.html">Quests</a></li>
                     <li><a href="schedule.html">Schedule</a></li>
                     <li><a href="profile.html">Profile</a></li>
-                    <li><a onclick="logout()">Logout</a></li>
+                    <li><a onclick="logout()" style = cursor:pointer;>Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -111,9 +111,10 @@
         </div>
     </footer>
 
+ 
     <script type="module">
-        import { changeUserContent, getUserJson } from "./database";
+        import { changeUserContent, getUserJson } from "./database.js";
     </script>
-    <script type="text/javascript" src="js/sample.js"></script>
+    <script type="module" src="js/sample.js"></script>
 </body>
 </html>	
