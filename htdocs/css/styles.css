@@ -82,53 +82,12 @@ a {
     background-color: #ddd;
 }
 
-.consistancy {width: 90%; background-color: #04AA6D;} /* Green */
-.weekly-prog {width: 80%; background-color: #2196F3;} /* Blue */
-.experience {width: 65%; background-color: #f44336;} /* Red */
 
 .skill {
     text-align: right; /* Right-align text */
     padding-top: 10px; /* Add top padding */
     padding-bottom: 10px; /* Add bottom padding */
     color: white; /* White text color */
-}
-
-.grid-container {
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 2fr;
-    grid-template-areas: 
-        'avatar badges'
-        'avatar stats'
-        'quests quests';
-}
-
-.item1 {
-    grid-area: avatar;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.item2 {
-    grid-area: badges;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.item3 {
-    grid-area: stats;
-    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
-    box-shadow: 1px 1px 1px 1px #5b9b52;
-    background-color: #75d172;
-    background-attachment: fixed;
-}
-
-.item4 {
-    grid-area: quests;
 }
 
 .stripe{

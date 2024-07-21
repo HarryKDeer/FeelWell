@@ -5,15 +5,15 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
 }
-.container {
-    background-color: white;
+.login-container {
+    background-color: #8be988;
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
-h2 {
+.login-container .h2 {
+    font-family: Arial, sans-serif;
     text-align: center;
     color: #333;
 }
@@ -28,7 +28,7 @@ input {
     border-radius: 4px;
 }
 button {
-    background-color: #007bff;
+    background-color: #33572e;
     color: white;
     border: none;
     padding: 10px;

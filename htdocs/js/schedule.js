@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load events from localStorage
     loadEvents();
 
+<<<<<<< HEAD
     addEventBtn.addEventListener('click', () => {
       document.getElementById('eventPopup').style.display = 'block';
     });
@@ -44,6 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     //     showEventPopup(day);
     //   }
     // });
+=======
+    // Highlight the current day
+    highlightCurrentDay();
+>>>>>>> 0137a292965b4c365d4f540cce3751059f64dc91
 
     eventForm.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -69,6 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
         eventForm.reset();
     });
+
+    function highlightCurrentDay() {
+        const days = document.querySelectorAll('.day');
+        const currentDay = new Date().toLocaleString('en-US', { weekday: 'long' });
+
+        days.forEach(day => {
+            if (day.getAttribute('data-day') === currentDay) {
+                day.classList.add('current-day');
+            }
+        });
+    }
 
     function isValidTime(hours, minutes, ampm) {
         const hoursNum = parseInt(hours, 10);

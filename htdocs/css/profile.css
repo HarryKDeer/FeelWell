@@ -12,61 +12,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #8be988;
+    /* background-color: rgba(218, 195, 140, 0.677); */
     background-image: url("bgElement.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position-y: -550px;
-}
-
-p {
-    text-align: left;
-    color: #6f612f;
-}
-
-p.footer {
-    text-align: center;
-    color: #7d7d7d;
-}
-
-/* Navbar Styles */
-.navbar {
-    background-color: #70d579;
-    padding: 0px 10%;
-    margin: 0px;
-    filter: drop-shadow(0px 5px 5px #5b9b52);
-    background: linear-gradient(90deg, rgba(68,102,64,1) 0%, rgba(80,121,74,1) 5%, rgba(80,121,74,1) 95%, rgba(68,102,64,1) 100%);
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.navbar .main-menu ul {
-    display: flex;
-}
-
-.navbar ul li a {
-    padding: 10px 20px;
-    display: block;
-    font-weight: 600;
-    transition: 0.5s;
-}
-
-.navbar ul li a:hover {
-    color: #ffd438;
-    background-color: rgb(96, 167, 87);
-}
-
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: #ffffff;
 }
 
 /* Stripe Styles */
@@ -75,8 +26,9 @@ a {
     display: flex;
     flex-direction: column;
     align-content: center;
+    justify-content: center;;
     margin-left: 8%;
-    margin-right: 8%;
+    margin-right: 10px;
     padding-bottom: 25px;
     background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
     box-shadow: 1px 1px 1px 1px #5b9b52;
@@ -123,10 +75,15 @@ footer a {
     height: 30px; /* Set the height of the health bar */
     background-color: #555; /* Dark background for contrast */
     border-radius: 15px; /* Rounded corners */
-    border: 2px solid #000; /* Optional: Add a border for more definition */
+    border: 2.5px solid #000; /* Optional: Add a border for more definition */
     box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Shadow for 3D effect */
     overflow: hidden; /* Ensures the inner bar does not spill over the rounded corners */
     margin-bottom: 10px; /* Add space below the health bar */
+    position: relative;
+}
+
+.heart-icon{
+    top:3px;
 }
 
 .health {
@@ -141,24 +98,40 @@ footer a {
 
 /* Experience Bar */
 .experience-bar {
+    display: flex; 
+    flex: 1;
+    justify-content: center;
+    align-items: center;
     width: 300px; 
     height: 30px; 
     background-color: #555; 
     border-radius: 15px; 
-    border: 2px solid #000; 
+    border: 2.5px solid #000; 
     box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     overflow: hidden;
     margin-bottom: 10px; /* Add space below the experience bar */
+    position: relative;
+}
+
+.swords-icon, .heart-icon{
+    position: absolute;
+    height: 21px;
+    object-fit: cover;
+    z-index: 2;
+    left: 9px;
 }
 
 .Experience {
-    height: 100%; 
-    background: linear-gradient(to right, #3072ff, #5967e9ab); 
+    height: 100%;
+    width: 0%; 
+    background: linear-gradient(to left, #3072ff, #5967e9ab); 
     text-align: center; 
     color: white; 
     line-height: 30px; 
     transition: width 0.5s ease; 
     box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3); 
+    
+
 }
 
 /* Footer Logo */
@@ -174,7 +147,9 @@ footer a {
     top: 50%; /* Center vertically */
     left: 50%; /* Center horizontally */
     transform: translate(-50%, -50%); /* Center alignment adjustment */
-    background-color: white;
+    background-color: rgba(237,172,102,255);
+    border: 5px solid rgba(197,122,69,255);
+    border-style: inset;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);
     z-index: 1000; /* Ensures it is above other content */
@@ -185,6 +160,8 @@ footer a {
     height: auto;
     margin: 10px;
     cursor: pointer;
+    border-radius: 10px;
+    background-color: none;
 }
 
 .overlay {
@@ -198,6 +175,10 @@ footer a {
     z-index: 999; /* Below the gallery container */
 }
 
+/* .selectable-image{
+    margin: 100px;
+} */
+
 /* Name Changer */
 .name-change-container {
     margin-top: 20px;
@@ -210,7 +191,9 @@ footer a {
 
 /* Title Changer */
 .title-change-container {
-    margin-top: 20px;
+    margin-top: 3px;
+    margin-left: 110px;
+
 }
 
 .title-change-container input {
@@ -220,16 +203,16 @@ footer a {
 
 /* Profile Name and Title */
 .profile-name, .profile-title {
-    border: 2px solid #3a3a3a; /* Adjust border color to blend with the background */
-    padding: 10px; /* Space between the text and the border */
-    border-radius: 10px; /* Rounded corners */
-    margin-bottom: 10px; /* Space between the name and the title */
-    text-align: center; /* Center the text */
-    background-color: #9bc38e; /* Adjust background color to match the page */
-    color: #333; /* Text color */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a slight shadow */
-    font-family: 'Roboto', sans-serif; /* Ensure consistent font */
-    font-size: 1.2em; /* Adjust font size */
+    border: 4px solid #c57a45;
+    border-style: double;
+    padding: 0px 60px; 
+    margin-bottom: 10px; 
+    /* text-align: center;  */
+    background-color: rgb(250, 199, 128);
+    box-shadow: inset 1px 1px rgb(56, 56, 56);
+    font-family: VT323, monospace;
+    font-size: 25px; 
+    color: black;
 }
 
 /* Title Style*/
@@ -257,3 +240,231 @@ footer a {
     background-color: transparent;
     mix-blend-mode: multiply;
 }
+
+.change-profile-button, .update-title-button{
+    margin-top: 15px;
+    padding: 2px 5px;
+    background-color: rgba(238,173,103,255);
+    font-size: 14px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    border-color: rgba(154, 80, 0, 0.542);
+    border-style: ridged;
+    border-width: 5px;
+    border-radius: 2px;
+    transition: opacity 0.15s;
+    /* box-shadow: 2px 3px rgba(235,169,102,255); */
+    /* font-family: "VT323", monospace;
+    font-weight: 500;
+    font-style: normal; */
+}
+
+.change-profile-button:active{
+    background-color: #b65000;
+}
+
+.change-profile-button:hover{
+    opacity: 0.8;
+}
+
+.profile-description, .profile-description-level{
+    margin-left: 6px;
+    margin-bottom: 3px;
+    font-family: VT323, monospace;
+    font-size: 21px;
+    font-weight: 700;
+    font-optical-sizing: auto;
+    color: #4b2a29;
+    text-shadow: 1px 1px 0px rgb(173, 115, 70);
+}
+
+.profile-description-level{
+    margin-top: 20px;
+    position: relative;
+}
+
+#skillLevel {
+    position: absolute;
+    bottom: 0;
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 24px;
+    color: darkbrown;
+    align-self: center;
+    margin-top: 20px;
+    border: none;
+    padding-left: 10px;
+    padding-top: 9px;
+}
+
+#titleInput{
+    background-color: rgb(222, 184, 135);
+    /* box-shadow: 1px 2px rgb(222, 184, 135); */
+    border: 2px solid  rgba(142,55,1,255);
+    text-indent: 5px;
+    border-radius: 10px;
+    box-shadow: inset 2px 2px 1px #c67b46;
+}
+
+#titleInput::placeholder{
+    font-size: 16px;
+    font-family: VT323, monospace;
+    color: rgb(69, 68, 68); 
+}
+
+
+.skill {
+    text-align: right; /* Right-align text */
+    padding-top: 10px; /* Add top padding */
+    padding-bottom: 10px; /* Add bottom padding */
+    color: white; /* White text color */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+        'avatar badges'
+        'avatar stats'
+        'quests quests';
+}
+
+.item1 {
+    grid-area: avatar;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.item2 {
+    grid-area: badges;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 100px;
+    margin-top: 80px;
+    padding: 8px 10px;
+    /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94)); */
+    /* box-shadow: 1px 1px 1px 1px #73c568; */
+    /* background-color: rgb(229,222,207); */
+    background-attachment: fixed;
+}
+
+.item3 {
+    grid-area: stats;
+    /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94)); */
+    box-shadow: inset 1px 2px 0px 1px rgb(245, 173, 114);
+    background-color: rgba(244,182,108,255) !important;
+    border: 8px solid rgba(185,84,1,255);
+    border-style: ridge;
+    border-radius: 10px;
+    background-attachment: fixed;
+    margin-right: 80px;
+    padding: 5px 9px;
+}
+
+.item4 {
+    grid-area: quests;
+}
+
+.profile-img{
+    /* background-color: rgba(244, 182, 108, 255); */
+    /* border: 3px solid black; */
+    border-radius: 10px;
+}
+
+#selectedImg{
+    height: 250px;
+    margin-right: 80px;
+    border-radius: 10px;
+}
+
+.profile-container{
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-image, .profile-button-changer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image{
+    background-color: rgb(250, 199, 128);
+    border: 8px solid rgba(185,84,1,255);
+    border-style: ridge;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.profile-button-changer{
+    background-color: none;
+}
+
+.badge-image5{
+    background-color: yellow;
+    box-shadow: 1px 1px 1px rgba(176,74,1,255);
+    border-radius: 10px;
+    border: 2px solid rgba(176,74,1,255);
+    transition: transform 400ms ease-in-out;
+
+}
+
+.badge-image4{
+    background-color:rgb(229, 228, 226);
+    box-shadow: 1px 1px 1px rgba(176,74,1,255);
+    border-radius: 10px;
+    border: 2px solid rgba(176,74,1,255);
+    transition: transform 400ms ease-in-out;
+
+}
+
+.badge-image3{
+    background-color: rgb(247, 134, 228);
+    box-shadow: 1px 1px rgb(176,74,1);
+    border-radius: 10px;
+    border: 2px solid rgba(176,74,1,255);
+    transition: transform 400ms ease-in-out;
+
+}
+
+.badge-image2{
+    background-color: rgb(115, 14, 14);
+    box-shadow: 1px 1px 1px rgba(176,74,1,255);
+    border-radius: 10px;
+    border: 2px solid rgba(176,74,1,255);
+    transition: transform 400ms ease-in-out;
+}
+
+
+.badge-image1{
+    background-color: rgb(229, 222, 207);
+    box-shadow: 1px 1px 1px rgba(176,74,1,255);
+    border-radius: 10px;
+    border: 2px solid rgba(176,74,1,255);
+    transition: transform 400ms ease-in-out;
+
+}
+
+
+
+.badge-image1:hover,
+.badge-image2:hover,
+.badge-image3:hover,
+.badge-image4:hover,
+.badge-image5:hover {
+    transform: scale(1.1);
+}
+
+

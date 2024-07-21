@@ -19,7 +19,7 @@ body{
     row-gap: 40px;
     margin-top: 30px;
     margin-left: 20px;
-    margin-right: auto;
+    margin-right: 20px;
     padding-bottom: 50px; 
 
 }
@@ -28,9 +28,17 @@ body{
     display: grid;
     justify-items: center;
     row-gap: 5px;
+    /* column-gap: 20px; */
     column-gap: auto;
     position: relative;
     overflow: visible;
+
+    /* testing background image */
+    /* background-color: white;
+    border: 2px solid black;
+    padding: 10px; */
+
+
 }
 
 .quest-header{
@@ -86,7 +94,7 @@ body{
 
 
 
-/* .progress-bar{
+ .progress-bar{
     margin-top: 0px; 
     width: 300px;
     --width: 1;
@@ -133,7 +141,7 @@ body{
     align-items: center;
     color: black;
     font-weight: bold;
-} */
+} 
 
 .progress-bar {
     margin-top: 0px; 

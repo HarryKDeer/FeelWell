@@ -298,3 +298,12 @@ footer a {
     text-decoration: line-through;
     opacity: 0.6;
 }
+<<<<<<< HEAD
+=======
+
+/*highlighter*/
+.current-day {
+    background-color: #ffeb3bd5; /* Highlight color */
+    border: 2px solid #000; /* Optional: border for more prominence */
+}
+>>>>>>> 0137a292965b4c365d4f540cce3751059f64dc91

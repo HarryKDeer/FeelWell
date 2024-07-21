@@ -34,6 +34,8 @@ function register(){
     const email = document.getElementById('reg_email').value;
     const password = document.getElementById('reg_password').value;
 
+    localStorage.setItem("user", user); //Save username to local storage
+
     const auth = getAuth();
 
 
@@ -60,17 +62,19 @@ function login(){
     const email = document.getElementById('log_email').value;
     const password = document.getElementById('log_password').value;
     // validate email + password
+
     /*
     if (!emailRegex.test(email)) {
         document.getElementById("error").innerHTML = "Invalid email";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
-    }else if (!password || password.length < 3) {
+    }else if (!password || password.length < 6) {
         document.getElementById("error").innerHTML = "Invalid password. Your password must be at least 3 characters long";
         document.getElementById("response").innerHTML = "Account not created successfully";
         return;
     }
     */
+
     const auth = getAuth();
     // authenticate it's really the user
     signInWithEmailAndPassword(auth, email, password)
@@ -80,7 +84,6 @@ function login(){
         
         //window.location.href = "index.html"
         console.log("it work");
-        alert("it not working")
         window.location.href = "index.html"
         // ...
       })
@@ -90,27 +93,37 @@ function login(){
         const errorMessage = error.message
   
         alert(errorMessage)
-        alert("u shitter")
     })
+    checkAuthState();
 
-
+    //Grab username through email
+    const json = getEmailJson(email);
+    const user = json.name;
+    localStorage.setItem("user", user); //and store to local storage
 }
 
 function logout() {
     const auth = getAuth();
-    signOut(auth)
-    .then(() => {
-        // Sign-out successful.
-        // Optionally, redirect to login page or update UI
-        // window.location.href = "login.html";
-        checkAuthState()
-        console.log("User signed out successfully");
-        alert("User signed out successfully")
-    })
-    .catch((error) => {
-        // An error happened.
-        console.error("Error signing out:", error);
-    });
+    if(auth.currentUser){
+        signOut(auth)
+        .then(() => {
+            // Sign-out successful.
+            // Optionally, redirect to login page or update UI
+            // window.location.href = "login.html";
+            //checkAuthState()
+            console.log("User signed out successfully");
+            alert("User signed out successfully")
+            window.location.href = "index.html"
+        })
+        .catch((error) => {
+            // An error happened.
+            console.error("Error signing out:", error);
+        });
+    } else {
+        console.log("No user is currently signed in");
+    }
+
+    localStorage.removeItem("user"); //Removes username from localstorage
 }
 
 function toggleForms() {
@@ -140,9 +153,35 @@ function checkAuthState() {
         // User is signed out
         // ...
         console.log("typeshit");
-        window.location.href = "login.html";
+        //window.location.href = "index.html";
     }
 });
 }
 
-export { register, login, toggleForms, checkAuthState, logout };
+function updateNavBar(){
+    const navItems = document.getElementById('navItems');
+    console.log("navbar");
+    const auth = getAuth();
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, show full navigation
+            navItems.innerHTML = `
+            <li><a href="index.html">Home</a></li>
+            <li><a href="quests.html">Quests</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="profile.html">Profile</a></li>
+            <li><a onclick="logout()" style=cursor:pointer;>Logout</a></li>
+            `;
+            document.getElementById('logoutButton').addEventListener('click', logout);
+            console.log("updated");
+        } else {
+            // No user is signed in, show only login button
+            navItems.innerHTML = `
+            <li><a onclick="document.getElementById('id01').style.display='block'" style="width:auto; cursor:pointer;">Join the Adventure!</a></li>
+            `;
+            console.log("not updated");
+        }
+    });
+}
+
+export { register, login, toggleForms, checkAuthState, logout, updateNavBar };
