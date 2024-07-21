@@ -1,5 +1,3 @@
-const website = '../php/';
-
 async function getUserInfo()
 {
     //Set your html element's ID to "user" to use the username as a way to grab information regarding the user
@@ -7,7 +5,7 @@ async function getUserInfo()
     user = document.getElementById("user").value; //This will grab the input within the html element named "user"
     
     //PHP stuff
-    url = website + `getUser.php?user=${user}`;
+    const url = `../php/getUser.php?user=${user}`;
     console.log("url", url);
     const response = await fetch(url);
     if (!response)
@@ -27,7 +25,7 @@ async function getUserInfo()
 async function getUserJson(user = document.getElementById("user").value) //You can pass either a variable in, or the function will get it itself
 {    
     //PHP stuff
-    url = website + `getUser.php?user=${user}`;
+    const url = `../php/getUser.php?user=${user}`;
     console.log("url", url);
     const response = await fetch(url);
     if (!response)
@@ -38,10 +36,9 @@ async function getUserJson(user = document.getElementById("user").value) //You c
 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
-        document.getElementById("userScore").innerHTML = json.score;
         return json; //Usually in the form of {name: , email: , password: , score: , lastonline: }
     } else {
-        document.getElementById("error").innerHTML = "User does not exist";
+        console.log("User does not exist");
     }
     
     /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
@@ -80,7 +77,7 @@ async function createUser()
     }
 
     //PHP stuff
-    url = website + `createUser.php?user=${user}&email=${email}&password=${password}`;
+    const url = `../php/createUser.php?user=${user}&email=${email}&password=${password}`;
     console.log("url", url);
     const response = await fetch(url);
     if (response && response.ok){
@@ -117,7 +114,7 @@ async function changeUserContent(user, newValue, contentType){
     */
 
     //PHP stuff
-    url = website + `changeUserContent.php?user=${user}&newValue=${newValue}&contentType=${contentType}`;
+    const url = `../php/changeUserContent.php?user=${user}&newValue=${newValue}&contentType=${contentType}`;
     console.log("url", url);
     const response = await fetch(url);
 
@@ -131,7 +128,7 @@ async function changeUserContent(user, newValue, contentType){
 async function getEmailJson(email = document.getElementById("email").value) //You can pass either a variable in, or the function will get it itself
 {    
     //PHP stuff
-    url = website + `getEmail.php?email=${email}`;
+    const url = `../php/getEmail.php?email=${email}`;
     console.log("url", url);
     const response = await fetch(url);
     if (!response)
@@ -142,10 +139,9 @@ async function getEmailJson(email = document.getElementById("email").value) //Yo
 
     //Naming your html elements these respective names will provide the relevant information regarding them
     if (json){
-        document.getElementById("user").innerHTML = json.name;
         return json; //Usually in the form of {email: , name: , password: , score: , lastonline: }
     } else {
-        document.getElementById("error").innerHTML = "User does not exist";
+        console.log("User does not exist");
     }
     
     /*  IF YOURE GETTING AN OBJECT PROMISE BEING RETURNED, you need to 'wait' for the the promise to resolve. This can be done by:
@@ -158,4 +154,4 @@ async function getEmailJson(email = document.getElementById("email").value) //Yo
     */
 }
 
-export {createUser, getUserInfo, getUserJson, changeUserContent, getEmailJson};
+export {createUser, getUserInfo, getUserJson, changeUserContent, getEmailJson, website};

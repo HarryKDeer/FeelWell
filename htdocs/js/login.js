@@ -97,9 +97,12 @@ function login(){
     checkAuthState();
 
     //Grab username through email
-    const json = getEmailJson(email);
-    const user = json.name;
-    localStorage.setItem("user", user); //and store to local storage
+    const prom = getEmailJson(email);
+    (prom && prom.then(json => {
+        const user = json.name;
+        localStorage.setItem("user", user); //and store to local storage
+    }))
+    
 }
 
 function logout() {

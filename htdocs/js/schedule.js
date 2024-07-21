@@ -1,9 +1,41 @@
 document.addEventListener('DOMContentLoaded', function() {
     const eventForm = document.getElementById('eventForm');
     const schedule = document.querySelector('.schedule');
+    // Get the button element
+    const addEventBtn = document.querySelector('.add-event-btn');
 
     // Load events from localStorage
     loadEvents();
+
+    addEventBtn.addEventListener('click', () => {
+      document.getElementById('eventPopup').style.display = 'block';
+    });
+
+    // Popup Form Submission Handler
+    popupEventForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const day = document.getElementById('day').value;
+      const hours = document.getElementById('hours').value;
+      const minutes = document.getElementById('minutes').value;
+      const ampm = document.getElementById('ampm').value;
+      const description = document.getElementById('description').value.trim();
+
+      // Validation (add your logic here)
+      if (!isValidTime(hours, minutes, ampm) || description === '') {
+          alert('Please enter a valid time and description.');
+          return;
+      }
+
+      const formattedTime = formatTime(hours, minutes, ampm);
+      const event = { day, time: formattedTime, description, completed: false };
+
+      addEvent(event);
+      saveEvent(event);
+
+      // Close the popup (you might add a transition here for smoothness)
+      eventPopup.style.display = 'none';
+    });
 
     // Highlight the current day
     highlightCurrentDay();
