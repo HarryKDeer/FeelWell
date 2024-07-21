@@ -25,7 +25,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="media/BigLogo.png" alt="logo" width="25%">
+                    <img src="media/logoFull.png" alt="logo" width="25%">
                 </a>
             </div>
             <div class="main-menu">
@@ -79,7 +79,7 @@
                 <img class = "swords-icon" src = "media/swords.png">
                 <div class="Experience" id="experienceBar">0XP</div>
             </div>
-            <p class = "profile-description-level">Skill Level: <span id="skillLevel"></span></p>
+            <p class = "profile-description-level">Skill Level: <span id="skillLevel">1</span></p>
         </div>
     </div>
 
@@ -111,7 +111,9 @@
         </div>
     </footer>
 
-    <script src="js/profile.js"></script>
+    <script type="module">
+        import { changeUserContent, getUserJson } from "./database";
+    </script>
     <script type="text/javascript" src="js/sample.js"></script>
 </body>
 </html>	

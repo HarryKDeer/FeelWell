@@ -1,3 +1,5 @@
+import { getUserJson, changeUserContent } from "./database.js";
+
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.selectable-image');
     const selectedImg = document.getElementById('selectedImg');
@@ -35,10 +37,11 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.setItem('lastOnline', profileData.lastOnline || new Date().toISOString()); // Load lastOnline
         }
 
-        //Replace experience with database experience
-        profileExperienceProm = getUserJson(localStorage.getItem("user"));
-        (profileExperienceProm && profileExperienceProm.then(userJson =>{  
+        //Replace stuff with database stuff
+        prom = getUserJson(localStorage.getItem("user"));
+        (prom && prom.then(userJson =>{  
             updateExperience(userJson.score || 0);
+            titleName.textContent = userJson.name;
         }))
     }
 
