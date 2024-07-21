@@ -154,4 +154,4 @@ async function getEmailJson(email = document.getElementById("email").value) //Yo
     */
 }
 
-export {createUser, getUserInfo, getUserJson, changeUserContent, getEmailJson, website};
+export {createUser, getUserInfo, getUserJson, changeUserContent, getEmailJson};
