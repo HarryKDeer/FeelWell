@@ -37,13 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
       eventPopup.style.display = 'none';
     });
 
-    // // This will listen for the click event on the "Add Event" button
-    // schedule.addEventListener('click', (e) => {
-    //   if (e.target.classList.contains('add-event-btn')) {
-    //     const day = e.target.dataset.day;
-    //     showEventPopup(day);
-    //   }
-    // });
     // Highlight the current day
     highlightCurrentDay();
 
