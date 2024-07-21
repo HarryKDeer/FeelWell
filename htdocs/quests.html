@@ -257,7 +257,9 @@
 			</div>
 		</footer>
 
-		<script src="js/database.js"></script>
+		<script type="module">
+			import { changeUserContent, getUserJson } from "./database";
+		</script>
 		<script src = "js/quests.js"></script>
 		<script type = "module">
             import { checkAuthState, logout } from "./js/login.js";
