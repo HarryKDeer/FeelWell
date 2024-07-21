@@ -31,7 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
             updateExperience(profileData.experience);
             updateHealth(profileData.health);
         }
-        updateExperience(localStorage.getItem('profileExperience') || 0);
+
+        //Replace experience with database experience
+        profileExperienceProm = getUserJson(localStorage.getItem("user"));
+        (profileExperienceProm && profileExperienceProm.then(userJson =>{  
+            updateExperience(userJson.score || 0);
+        }))
     }
 
     function updateHealth(newHealth) {
