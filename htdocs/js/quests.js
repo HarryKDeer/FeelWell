@@ -96,7 +96,7 @@ function updateDB(changeBy){
     const prom = getUserJson(user);
 
     (prom && prom.then(userJson =>{
-        let newScore = userJson.score + changeBy;
+        let newScore = Number(userJson.score) + Number(changeBy);
         changeUserContent(user, newScore, "score");
     }))
 }
