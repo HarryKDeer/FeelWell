@@ -1,3 +1,5 @@
+import { getUserJson, changeUserContent } from "./database.js";
+
 document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('.selectable-image');
     const selectedImg = document.getElementById('selectedImg');
