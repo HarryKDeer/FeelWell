@@ -94,7 +94,6 @@ function login(){
   
         alert(errorMessage)
     })
-    checkAuthState();
 
     //Grab username through email
     const prom = getEmailJson(email);
@@ -126,7 +125,7 @@ function logout() {
         console.log("No user is currently signed in");
     }
 
-    localStorage.removeItem("user"); //Removes everything from localSTorage
+    localStorage.clear(); //Removes everything from localSTorage
 }
 
 function toggleForms() {
@@ -155,7 +154,7 @@ function checkAuthState() {
     } else {
         // User is signed out
         // ...
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
     }
 });
 }
