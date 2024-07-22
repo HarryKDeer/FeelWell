@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         //Replace stuff with database stuff
-        prom = getUserJson(localStorage.getItem("user"));
+        const prom = getUserJson(localStorage.getItem("user"));
         (prom && prom.then(userJson =>{  
             updateExperience(userJson.score || 0);
-            titleName.textContent = userJson.name;
+            document.getElementById("profileName").innerHTML = userJson.name;
         }))
     }
 

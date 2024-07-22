@@ -85,18 +85,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateProgressBar(progressBar, progress, questXP);
                 localStorage.setItem(`quest${index}Progress`, progress);
                 decreaseProfileExperience(questXP); // Decrease profile experience
+                updateDB(-questXP);
             });
-            updateDB(-questXP);
+            
         }
     });
 });
 
 function updateDB(changeBy){
-    const user = localStorange.getItem("user");
+    const user = localStorage.getItem("user");
     const prom = getUserJson(user);
 
     (prom && prom.then(userJson =>{
-        newScore = userJson.score + changeBy;
+        let newScore = Number(userJson.score) + Number(changeBy);
         changeUserContent(user, newScore, "score");
     }))
 }
