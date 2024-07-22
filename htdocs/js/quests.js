@@ -54,14 +54,14 @@ const QUEST_XP = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    const d = new Date();
+    let d = new Date();
     const minute = 1000 * 60;
     const hour = minute * 60;
     const day = hour * 24;
     let currentDay  = Math.round(d.getTime/day);
     let lastDay = localStorage.getItem("questDay");
     
-    if (!isNaN(lastDay)){ //Resets progress for each thing each day
+    if (lastDay || !isNaN(lastDay)){ //Resets progress for each thing each day
         if (lastDay < currentDay){
             questSections.forEach((section, index) => {
                 const progressBar = section.querySelector('.progress-bar');

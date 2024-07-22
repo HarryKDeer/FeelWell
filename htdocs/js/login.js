@@ -2,7 +2,7 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js"
-import { getUserInfo, createUser } from "./database.js";
+import { getUserInfo, createUser, getEmailJson } from "./database.js";
 
   
   // Your web app's Firebase configuration
@@ -102,8 +102,6 @@ function login(){
         const user = json.name;
         localStorage.setItem("user", user); //and store to local storage
     }))
-
-    id="usernameDisplay"
     
 }
 
