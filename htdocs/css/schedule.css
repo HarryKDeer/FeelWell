@@ -307,3 +307,23 @@ highlighter {
     background-color: #ffeb3bd5; /* Highlight color */
     border: 2px solid #000; /* Optional: border for more prominence */
 }
+
+/*user dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #507949;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 1px 1px;
+    z-index: 1;
+  }
+  
+  .show {
+    display: block;
+  }

@@ -102,6 +102,8 @@ function login(){
         const user = json.name;
         localStorage.setItem("user", user); //and store to local storage
     }))
+
+    id="usernameDisplay"
     
 }
 
@@ -155,8 +157,7 @@ function checkAuthState() {
     } else {
         // User is signed out
         // ...
-        console.log("typeshit");
-        //window.location.href = "index.html";
+        window.location.href = "index.html";
     }
 });
 }
@@ -174,10 +175,11 @@ function updateNavBar(){
             <li><a href="schedule.html">Schedule</a></li>
             <li><a href="profile.html">Profile</a></li>
             <li><div class="dropdown">
-            <a class="dropbtn" style = 'cursor:pointer'>aa</a>
+            <a id="usernameDisplay" class="dropbtn" style = 'cursor:pointer'>hello</a>
             <div class="dropdown-content"><a onclick="logout()" style= 'cursor:pointer;'>Logout</a></div></div></li>
             `;
             setupDropdown();
+            displayUsername();
             document.getElementById('logoutButton').addEventListener('click', logout);
             console.log("updated");
         } else {
@@ -188,6 +190,17 @@ function updateNavBar(){
             console.log("not updated");
         }
     });
+}
+
+function displayUsername() {
+    const username = localStorage.getItem('user');
+    const usernameDisplay = document.getElementById('usernameDisplay');
+    
+    if (username) {
+      usernameDisplay.textContent = username;
+    } else {
+      usernameDisplay.textContent = 'Guest';
+    }
 }
 
 function setupDropdown() {
@@ -210,4 +223,4 @@ function setupDropdown() {
     }
 }
 
-export { register, login, toggleForms, checkAuthState, logout, updateNavBar };
+export { register, login, toggleForms, checkAuthState, logout, updateNavBar, setupDropdown, displayUsername };

@@ -24,7 +24,7 @@
 		<link rel = "stylesheet" href = "css/quests.css">
 	</head>
 
-	<body style = "image-rendering: pixelated; background-image: none">
+	<body onload="checkAuthState()" style = "image-rendering: pixelated; background-image: none">
 
 		<img class = "bigLogo" source="media/bigLogo.png">
 
@@ -51,7 +51,12 @@
 							<a href="profile.html">Profile</a>
 						</li>
 						<li>
-							<a onclick="logout()" style=cursor:pointer;>Logout</a>
+							<div class="dropdown">
+								<a id="usernameDisplay" class="dropbtn" style = 'cursor:pointer'>aa</a>
+								<div class="dropdown-content">
+									<a onclick="logout()" style= 'cursor:pointer;'>Logout</a>
+								</div>
+							</div>
 						</li>
 					</ul>
 				</div>
@@ -258,15 +263,20 @@
 		</footer>
 
 		<script type="module">
-			import { changeUserContent, getUserJson } from "./js/database.js";
+			import { changeUserContent, getUserJson, website } from "./js/database.js";
 		</script>
 		<script type="module" src = "./js/quests.js"></script>
 		<script type = "module">
-            import { checkAuthState, logout } from "./js/login.js";
+            import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
             
             // Attach functions to the global window object
             window.checkAuthState = checkAuthState;
 			window.logout = logout;
+			window.setupDropdown = setupDropdown;
+			window.displayUsername = displayUsername;
+        	setupDropdown();
+			checkAuthState();
+			displayUsername();
         </script>
 	</body>
 

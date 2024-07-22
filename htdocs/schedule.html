@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/schedule.css">
     <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
 </head>
-<body>
+<body onload="checkAuthState()">
 
 
     <nav id="navbarID" class="navbar">
@@ -31,7 +31,14 @@
                     <li><a href="quests.html">Quests</a></li>
                     <li><a href="schedule.html">Schedule</a></li>
                     <li><a href="profile.html">Profile</a></li>
-                    <li><a onclick="logout()" style=cursor:pointer;>Logout</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a id="usernameDisplay" class="dropbtn" style = 'cursor:pointer'></a>
+                            <div class="dropdown-content">
+                                <a onclick="logout()" style= 'cursor:pointer;'>Logout</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -104,11 +111,15 @@
     <!-- <script src="./js/script.js"></script> -->
     <script type="text/javascript" src="js/sample.js"></script>
     <script type = "module">
-        import { checkAuthState, logout } from "./js/login.js";
+        import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
 
         // Attach functions to the global window object
         window.checkAuthState = checkAuthState;
         window.logout = logout;
+        window.setupDropdown = setupDropdown;
+        window.displayUsername = displayUsername;
+        setupDropdown();
+        displayUsername();
     </script>
 </body>
 </html>

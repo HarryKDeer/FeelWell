@@ -54,6 +54,33 @@ const QUEST_XP = {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    const d = new Date();
+    const minute = 1000 * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+    let currentDay  = Math.round(d.getTime/day);
+    let lastDay = localStorage.getItem("questDay");
+    
+    if (lastDay){ //Resets progress for each thing each day
+        if (lastDay < currentDay){
+            questSections.forEach((section, index) => {
+                const icon = section.querySelector('.quest-icons');
+                const progressBar = section.querySelector('.progress-bar');
+                const resetButton = section.querySelector('.reset-button');
+                
+                const questXP = QUEST_XP[index] || 10;
+                
+                let progress = 0;
+                updateProgressBar(progressBar, progress, questXP);
+                
+                localStorage.setItem("questDay", currentDay);
+            })
+        }
+    } else {
+        localStorage.setItem("questDay", currentDay);
+    }
+
+
     const questSections = document.querySelectorAll('.quest-section');
 
     questSections.forEach((section, index) => {
@@ -85,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateProgressBar(progressBar, progress, questXP);
                 localStorage.setItem(`quest${index}Progress`, progress);
                 decreaseProfileExperience(questXP); // Decrease profile experience
-                updateDB(-questXP);
+                //updateDB(-questXP);
             });
             
         }

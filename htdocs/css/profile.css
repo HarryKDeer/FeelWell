@@ -13,11 +13,14 @@ body {
     padding: 0;
     background-color: #8be988;
     /* background-color: rgba(218, 195, 140, 0.677); */
-    background-image: url("bgElement.png");
+    background-image: url("../media/pixel-landscape.jpg");
+    background-position: center;
     background-size: cover;
+    /* background: image     */ 
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position-y: -550px;
+    /* background-position-y: -550px; */
 }
 
 /* Stripe Styles */
@@ -26,7 +29,7 @@ body {
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;;
+    justify-content: center;
     margin-left: 8%;
     margin-right: 10px;
     padding-bottom: 25px;
@@ -361,8 +364,9 @@ footer a {
 .item3 {
     grid-area: stats;
     /* background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94)); */
-    box-shadow: inset 1px 2px 0px 1px rgb(245, 173, 114);
+    /* box-shadow: inset 1px 2px 0px 1px rgb(245, 173, 114); */
     background-color: rgba(244,182,108,255) !important;
+    background: linear-gradient(45deg, rgb(244,182,108), rgb(244, 149, 32));
     border: 8px solid rgba(185,84,1,255);
     border-style: ridge;
     border-radius: 10px;
@@ -454,6 +458,7 @@ footer a {
     border-radius: 10px;
     border: 2px solid rgba(176,74,1,255);
     transition: transform 400ms ease-in-out;
+    overflow: hidden;
 
 }
 
@@ -467,4 +472,22 @@ footer a {
     transform: scale(1.1);
 }
 
-
+/*user dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #507949;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 1px 1px;
+    z-index: 1;
+  }
+  
+  .show {
+    display: block;
+  }
