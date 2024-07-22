@@ -165,3 +165,5 @@ document.addEventListener('DOMContentLoaded', function() {
         updateExperienceBar(currentExperience);
     };
 });
+
+export{toggleGallery}
