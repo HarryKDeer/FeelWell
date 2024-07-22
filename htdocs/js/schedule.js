@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const eventForm = document.getElementById('eventForm');
+    // const eventForm = document.getElementById('eventForm');
     const schedule = document.querySelector('.schedule');
     // Get the button element
     const addEventBtn = document.querySelector('.add-event-btn');
@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Load events from localStorage
     loadEvents();
 
+    // Makes the form popup appear
     addEventBtn.addEventListener('click', () => {
       document.getElementById('eventPopup').style.display = 'block';
     });
@@ -14,8 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Popup Form Submission Handler
     popupEventForm.addEventListener('submit', (e) => {
       e.preventDefault();
+      const currentDayElement = eventPopup.closest('.day');
 
-      const day = document.getElementById('day').value;
+      // Get the data-day attribute value
+      const day = currentDayElement.dataset.day;
+
+      // const day = document.getElementById('day').value;
       const hours = document.getElementById('hours').value;
       const minutes = document.getElementById('minutes').value;
       const ampm = document.getElementById('ampm').value;
@@ -40,30 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
     // Highlight the current day
     highlightCurrentDay();
 
-    eventForm.addEventListener('submit', function(e) {
-        e.preventDefault();
+    // eventForm.addEventListener('submit', function(e) {
+    //     e.preventDefault();
 
-        // Capture values from the form
-        const day = document.getElementById('day').value;
-        const hours = document.getElementById('hours').value;
-        const minutes = document.getElementById('minutes').value;
-        const ampm = document.getElementById('ampm').value;
-        const description = document.getElementById('description').value.trim();
+    //     // Capture values from the form
+    //     const day = document.getElementById('day').value;
+    //     const hours = document.getElementById('hours').value;
+    //     const minutes = document.getElementById('minutes').value;
+    //     const ampm = document.getElementById('ampm').value;
+    //     const description = document.getElementById('description').value.trim();
 
-        // Validate time and description
-        if (!isValidTime(hours, minutes, ampm) || description === '') {
-            alert('Please enter a valid time and description.');
-            return;
-        }
+    //     // Validate time and description
+    //     if (!isValidTime(hours, minutes, ampm) || description === '') {
+    //         alert('Please enter a valid time and description.');
+    //         return;
+    //     }
 
-        const formattedTime = formatTime(hours, minutes, ampm);
-        const event = { day, time: formattedTime, description, completed: false };
+    //     const formattedTime = formatTime(hours, minutes, ampm);
+    //     const event = { day, time: formattedTime, description, completed: false };
 
-        addEvent(event);
-        saveEvent(event);
+    //     addEvent(event);
+    //     saveEvent(event);
 
-        eventForm.reset();
-    });
+    //     eventForm.reset();
+    // });
 
     function highlightCurrentDay() {
         const days = document.querySelectorAll('.day');
