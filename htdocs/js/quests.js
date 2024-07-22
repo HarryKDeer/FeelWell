@@ -61,18 +61,13 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentDay  = Math.round(d.getTime/day);
     let lastDay = localStorage.getItem("questDay");
     
-    if (lastDay){ //Resets progress for each thing each day
+    if (!isNaN(lastDay)){ //Resets progress for each thing each day
         if (lastDay < currentDay){
             questSections.forEach((section, index) => {
-                const icon = section.querySelector('.quest-icons');
                 const progressBar = section.querySelector('.progress-bar');
-                const resetButton = section.querySelector('.reset-button');
-                
                 const questXP = QUEST_XP[index] || 10;
-                
                 let progress = 0;
-                updateProgressBar(progressBar, progress, questXP);
-                
+                updateProgressBar(progressBar, progress, questXP); 
                 localStorage.setItem("questDay", currentDay);
             })
         }
