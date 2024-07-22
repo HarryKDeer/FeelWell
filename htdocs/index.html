@@ -127,7 +127,7 @@
 		}
 		</script>
 		<script type = "module">
-			import { register, login, toggleForms, checkAuthState, updateNavBar } from "./js/login.js";
+			import { register, login, toggleForms, checkAuthState, updateNavBar, displayUsername } from "./js/login.js";
 			
 			document.getElementById('loginButton').addEventListener('click', login);
 			document.getElementById('registerButton').addEventListener('click', register);
@@ -140,6 +140,7 @@
 			window.toggleForms = toggleForms;
 			window.checkAuthState = checkAuthState;
 			window.logout = logout;
+			window.DisplayUsername = displayUsername;
 			updateNavBar();
 		</script>
 

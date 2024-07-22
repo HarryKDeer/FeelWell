@@ -13,7 +13,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/schedule.css">
     <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
-    <script>checkAuthState()</script>
 </head>
 <body onload="checkAuthState()">
 
@@ -34,7 +33,7 @@
                     <li><a href="profile.html">Profile</a></li>
                     <li>
                         <div class="dropdown">
-                            <a class="dropbtn" style = 'cursor:pointer'>aa</a>
+                            <a id="usernameDisplay" class="dropbtn" style = 'cursor:pointer'></a>
                             <div class="dropdown-content">
                                 <a onclick="logout()" style= 'cursor:pointer;'>Logout</a>
                             </div>
@@ -112,13 +111,15 @@
     <!-- <script src="./js/script.js"></script> -->
     <script type="text/javascript" src="js/sample.js"></script>
     <script type = "module">
-        import { checkAuthState, logout, setupDropdown} from "./js/login.js";
+        import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
 
         // Attach functions to the global window object
         window.checkAuthState = checkAuthState;
         window.logout = logout;
         window.setupDropdown = setupDropdown;
+        window.displayUsername = displayUsername;
         setupDropdown();
+        displayUsername();
     </script>
 </body>
 </html>

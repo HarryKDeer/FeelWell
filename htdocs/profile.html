@@ -18,7 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <script>checkAuthState()</script>
 </head>
 <body onload="checkAuthState()">
     <nav id="navbarID" class="navbar">
@@ -36,7 +35,7 @@
                     <li><a href="profile.html">Profile</a></li>
                     <li>
                         <div class="dropdown">
-                            <a class="dropbtn" style = 'cursor:pointer'>aa</a>
+                            <a id="usernameDisplay" class="dropbtn" style = 'cursor:pointer'></a>
                             <div class="dropdown-content">
                                 <a onclick="logout()" style= 'cursor:pointer;'>Logout</a>
                             </div>
@@ -125,13 +124,16 @@
     <script type="module" src="./js/profile.js"></script>
     <script type="module" src="./js/sample.js"></script>
     <script type = "module">
-        import { checkAuthState, logout, setupDropdown} from "./js/login.js";
+        import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
 
         // Attach functions to the global window object
         window.checkAuthState = checkAuthState;
         window.logout = logout;
         window.setupDropdown = setupDropdown;
+        window.displayUsername = displayUsername;
         setupDropdown();
+        checkAuthState();
+        displayUsername();
     </script>
 </body>
 </html>	
