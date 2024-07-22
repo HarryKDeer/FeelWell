@@ -217,3 +217,5 @@ function decreaseProfileExperience(xpLost) {
         profileExperienceBar.textContent = currentExperience + '%';
     }
 }
+
+export{ displayRandomQuote }
