@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 updateProgressBar(progressBar, progress, questXP);
                 localStorage.setItem(`quest${index}Progress`, progress);
                 decreaseProfileExperience(questXP); // Decrease profile experience
-                updateDB(-questXP);
+                //updateDB(-questXP);
             });
             
         }
