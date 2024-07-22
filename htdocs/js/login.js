@@ -210,4 +210,4 @@ function setupDropdown() {
     }
 }
 
-export { register, login, toggleForms, checkAuthState, logout, updateNavBar };
+export { register, login, toggleForms, checkAuthState, logout, updateNavBar, setupDropdown };
