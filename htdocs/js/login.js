@@ -102,8 +102,6 @@ function login(){
         const user = json.name;
         localStorage.setItem("user", user); //and store to local storage
     }))
-
-    id="usernameDisplay"
     
 }
 
