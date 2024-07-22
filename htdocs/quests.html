@@ -265,7 +265,10 @@
 		<script type="module">
 			import { changeUserContent, getUserJson, website } from "./js/database.js";
 		</script>
-		<script type="module" src = "./js/quests.js"></script>
+		<script type="module">
+			import { displayRandomQuote } from "./js/quests.js";
+			window.displayRandomQuote = displayRandomQuote;
+		</script>
 		<script type = "module">
             import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
             
