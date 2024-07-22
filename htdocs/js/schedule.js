@@ -1,74 +1,86 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // const eventForm = document.getElementById('eventForm');
-    const schedule = document.querySelector('.schedule');
-    // Get the button element
-    const addEventBtn = document.querySelector('.add-event-btn');
+document.addEventListener('DOMContentLoaded', function () {
+  // const eventForm = document.getElementById('eventForm');
+  const schedule = document.querySelector('.schedule');
+  // Get the button element
+  // const addEventBtn = document.querySelector('.add-event-btn');
 
-    // Load events from localStorage
-    loadEvents();
+  // Load events from localStorage
+  loadEvents();
 
-    // Makes the form popup appear
-    addEventBtn.addEventListener('click', () => {
-      document.getElementById('eventPopup').style.display = 'block';
-    });
+  // Event Listener for .schedule container +Add Event buttons
+  schedule.addEventListener('click', (e) => {
+    const target = e.target;
 
-    // Popup Form Submission Handler
-    popupEventForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const currentDayElement = eventPopup.closest('.day');
+    // Check if the clicked button is an +Add Event button
+    if (target.classList.contains('add-event-btn')) {
+      // Get the day value
+      const day = target.dataset.day;
+      // Set popup reference from the target for the correct day
+      const popup = document.getElementById(`eventPopup-${day}`);
 
-      // Get the data-day attribute value
-      const day = currentDayElement.dataset.day;
+      // This is for the +Add Event button to appear
+      if (popup) {
+        // Unhide the popup
+        popup.style.display = 'block';
+      }
+    } else if (target.classList.contains('day-submit-button')) { // maybe even 'submit'
+        e.preventDefault();
 
-      // const day = document.getElementById('day').value;
-      const hours = document.getElementById('hours').value;
-      const minutes = document.getElementById('minutes').value;
-      const ampm = document.getElementById('ampm').value;
-      const description = document.getElementById('description').value.trim();
+        // Get the form element associated with the clicked submit button
+        const form = target.closest("form");
+        // Extract the day from the form's ID (e.g., 'popupEventForm-Monday')
+        const day = form.id.split("-")[1]; // Assuming the form ID is formatted as "popupEventForm-DAY"
 
-      // Validation (add your logic here)
-      if (!isValidTime(hours, minutes, ampm) || description === '') {
+
+        // Get the values from the form for specific day
+        const hours = document.getElementById(`hours-${day}`).value;
+        const minutes = document.getElementById(`minutes-${day}`).value;
+        const ampm = document.getElementById(`ampm-${day}`).value;
+        const description = document.getElementById(`description-${day}`).value.trim();
+
+        // Validation (add your logic here)
+        if (!isValidTime(hours, minutes, ampm) || description === '') {
           alert('Please enter a valid time and description.');
           return;
+        }
+
+        const formattedTime = formatTime(hours, minutes, ampm);
+        const event = { day, time: formattedTime, description, completed: false };
+
+        addEvent(event);
+        saveEvent(event);
+
+        // Close the popup (you might add a transition here for smoothness)
+        form.closest(".popup").style.display = "none"; // Hide the correct popup
       }
+  });
 
-      const formattedTime = formatTime(hours, minutes, ampm);
-      const event = { day, time: formattedTime, description, completed: false };
+  function saveEvent(day) {
+    e.preventDefault();
 
-      addEvent(event);
-      saveEvent(event);
+    // Get the values from the form for specific day
+    const hours = document.getElementById(`hours-${day}`).value;
+    const minutes = document.getElementById(`minutes-${day}`).value;
+    const ampm = document.getElementById(`ampm-${day}`).value;
+    const description = document.getElementById(`description-${day}`).value.trim();
 
-      // Close the popup (you might add a transition here for smoothness)
-      eventPopup.style.display = 'none';
-    });
+    // Validation (add your logic here)
+    if (!isValidTime(hours, minutes, ampm) || description === '') {
+      alert('Please enter a valid time and description.');
+      return;
+    }
+
+    const formattedTime = formatTime(hours, minutes, ampm);
+    const event = { day, time: formattedTime, description, completed: false };
+
+    addEvent(event);
+    saveEvent(event);
+
+    popup.style.display = 'none';
+  }
 
     // Highlight the current day
     highlightCurrentDay();
-
-    // eventForm.addEventListener('submit', function(e) {
-    //     e.preventDefault();
-
-    //     // Capture values from the form
-    //     const day = document.getElementById('day').value;
-    //     const hours = document.getElementById('hours').value;
-    //     const minutes = document.getElementById('minutes').value;
-    //     const ampm = document.getElementById('ampm').value;
-    //     const description = document.getElementById('description').value.trim();
-
-    //     // Validate time and description
-    //     if (!isValidTime(hours, minutes, ampm) || description === '') {
-    //         alert('Please enter a valid time and description.');
-    //         return;
-    //     }
-
-    //     const formattedTime = formatTime(hours, minutes, ampm);
-    //     const event = { day, time: formattedTime, description, completed: false };
-
-    //     addEvent(event);
-    //     saveEvent(event);
-
-    //     eventForm.reset();
-    // });
 
     function highlightCurrentDay() {
         const days = document.querySelectorAll('.day');

@@ -21,7 +21,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="media/BigLogo.png" alt="logo" width="25%">
+                    <img src="media/logoFull.png" alt="logo" width="25%">
                 </a>
             </div>
 
@@ -45,57 +45,147 @@
     </nav>
 
 
-    <!--Start of Scheduler-->
     <div class="schedule-container">
-        <div class = "quests-title-container">
-            <img class = "quest-font-image" src = "media/Schedule2.png">
+      <div class="quests-title-container">
+        <img class="quest-font-image" src="media/Schedule2.png">
+      </div>
+      <div class="schedule">
+        <div class="day" data-day="Monday">
+          <h2>Monday</h2>
+          <button class="add-event-btn" data-day="Monday">+ New Event</button>
+          <div id="eventPopup-Monday" class="popup">
+            <form id="popupEventForm-Monday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Monday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Monday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Monday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Monday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
         </div>
-        <div class="schedule">
-            <div class="day" data-day="Monday">
-                <h2>Monday</h2>
-                <!--The button class-->
-                <button class="add-event-btn">+ New Event</button>
-                <!--The forum to add event -->
-                <div id="eventPopup" class="popup">
-                    <form id="popupEventForm">
-                        <label for="time">Time:</label>
-                        <input type="number" id="hours" placeholder="hh" min="1" max="12" style="width: 50px;">
-                        <input type="number" id="minutes" placeholder="mm" min="0" max="59" style="width: 50px;">
-                        <select id="ampm">
-                            <option value="AM">AM</option>
-                            <option value="PM">PM</option>
-                        </select>
-                        <label for="description">Description:</label>
-                        <input type="text" id="description">
-                        <button class="day-submit-button" type="submit">Add Event</button></div>
-                    </form>
-            </div>
-            <div class="day" data-day="Tuesday">
-                <h2>Tuesday</h2>
-            </div>
-            <div class="day" data-day="Wednesday">
-                <h2>Wednesday</h2>
-            </div>
-            <div class="day" data-day="Thursday">
-                <h2>Thursday</h2>
-            </div>
-            <div class="day" data-day="Friday">
-                <h2>Friday</h2>
-            </div>
-            <div class="day" data-day="Saturday">
-                <h2>Saturday</h2>
-            </div>
-            <div class="day" data-day="Sunday">
-                <h2>Sunday</h2>
-            </div>
+        <div class="day" data-day="Tuesday">
+          <h2>Tuesday</h2>
+          <button class="add-event-btn" data-day="Tuesday">+ New Event</button>
+          <div id="eventPopup-Tuesday" class="popup">
+            <form id="popupEventForm-Tuesday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Tuesday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Tuesday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Tuesday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Tuesday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
         </div>
+        <div class="day" data-day="Wednesday">
+          <h2>Wednesday</h2>
+          <button class="add-event-btn" data-day="Wednesday">+ New Event</button>
+          <div id="eventPopup-Wednesday" class="popup">
+            <form id="popupEventForm-Wednesday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Wednesday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Wednesday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Wednesday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Wednesday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
+        </div>
+        <div class="day" data-day="Thursday">
+          <h2>Thursday</h2>
+          <button class="add-event-btn" data-day="Thursday">+ New Event</button>
+          <div id="eventPopup-Thursday" class="popup">
+            <form id="popupEventForm-Thursday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Thursday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Thursday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Thursday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Thursday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
+        </div>
+        <div class="day" data-day="Friday">
+          <h2>Friday</h2>
+          <button class="add-event-btn" data-day="Friday">+ New Event</button>
+          <div id="eventPopup-Friday" class="popup">
+            <form id="popupEventForm-Friday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Friday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Friday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Friday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Friday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
+        </div>
+        <div class="day" data-day="Saturday">
+          <h2>Saturday</h2>
+          <button class="add-event-btn" data-day="Saturday">+ New Event</button>
+          <div id="eventPopup-Saturday" class="popup">
+            <form id="popupEventForm-Saturday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Saturday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Saturday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Saturday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Saturday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
+        </div>
+        <div class="day" data-day="Sunday">
+          <h2>Sunday</h2>
+          <button class="add-event-btn" data-day="Sunday">+ New Event</button>
+          <div id="eventPopup-Sunday" class="popup">
+            <form id="popupEventForm-Sunday">
+              <label for="time">Time:</label>
+              <input type="number" id="hours-Sunday" placeholder="hh" min="1" max="12" style="width: 50px;">
+              <input type="number" id="minutes-Sunday" placeholder="mm" min="0" max="59" style="width: 50px;">
+              <select id="ampm-Sunday">
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+              <label for="description">Description:</label>
+              <input type="text" id="description-Sunday">
+              <button class="day-submit-button" type="submit">Add Event</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      </div>
     </div>
+
 
 
     <!-- START FOOTER -->
     <footer>
         <div class="footerColumns">
-            <img class="footer-logo" src="media/Logo.png" alt="Footer-Logo">
+            <img class="footer-logo" src="media/logo.png" alt="Footer-Logo">
             <p class="footer">Site design / Features © 2024 - Present, FeelWell Team</p>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -108,7 +198,6 @@
     </footer>
 
     <script src="js/schedule.js"></script>
-    <!-- <script src="./js/script.js"></script> -->
     <script type="text/javascript" src="js/sample.js"></script>
     <script type = "module">
         import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";
