@@ -34,7 +34,14 @@
                     <li><a href="quests.html">Quests</a></li>
                     <li><a href="schedule.html">Schedule</a></li>
                     <li><a href="profile.html">Profile</a></li>
-                    <li><a onclick="logout()" style = cursor:pointer;>Logout</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <a class="dropbtn" style = 'cursor:pointer'>aa</a>
+                            <div class="dropdown-content">
+                                <a onclick="logout()" style= 'cursor:pointer;'>Logout</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -117,5 +124,14 @@
     </script>
     <script type="module" src="./js/profile.js"></script>
     <script type="module" src="./js/sample.js"></script>
+    <script type = "module">
+        import { checkAuthState, logout, setupDropdown} from "./js/login.js";
+
+        // Attach functions to the global window object
+        window.checkAuthState = checkAuthState;
+        window.logout = logout;
+        window.setupDropdown = setupDropdown;
+        setupDropdown();
+    </script>
 </body>
 </html>	
