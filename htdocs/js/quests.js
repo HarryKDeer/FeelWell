@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentDay  = Math.round(d.getTime/day);
     let lastDay = localStorage.getItem("questDay");
     
-    if (lastDay){ //Resets progress for each thing each day
+    if (!isNaN(lastDay)){ //Resets progress for each thing each day
         if (lastDay < currentDay){
             questSections.forEach((section, index) => {
                 const progressBar = section.querySelector('.progress-bar');
