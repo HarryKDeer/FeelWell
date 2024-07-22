@@ -24,7 +24,7 @@
 		<link rel = "stylesheet" href = "css/quests.css">
 	</head>
 
-	<body style = "image-rendering: pixelated; background-image: none">
+	<body onload="checkAuthState()" style = "image-rendering: pixelated; background-image: none">
 
 		<img class = "bigLogo" source="media/bigLogo.png">
 
@@ -274,6 +274,7 @@
 			window.logout = logout;
 			window.setupDropdown = setupDropdown;
         	setupDropdown();
+			checkAuthState();
         </script>
 	</body>
 

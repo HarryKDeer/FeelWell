@@ -155,8 +155,7 @@ function checkAuthState() {
     } else {
         // User is signed out
         // ...
-        console.log("typeshit");
-        //window.location.href = "index.html";
+        window.location.href = "index.html";
     }
 });
 }
