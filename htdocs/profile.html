@@ -121,7 +121,10 @@
     <script type="module">
         import { changeUserContent, getUserJson } from "./js/database.js";
     </script>
-    <script type="module" src="./js/profile.js"></script>
+    <script type="module">
+        import{ toggleGallery } from "./js/profile.js";
+        window.toggleGallery = toggleGallery;
+    </script>
     <script type="module" src="./js/sample.js"></script>
     <script type = "module">
         import { checkAuthState, logout, setupDropdown, displayUsername } from "./js/login.js";

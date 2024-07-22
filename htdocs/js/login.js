@@ -126,7 +126,7 @@ function logout() {
         console.log("No user is currently signed in");
     }
 
-    localStorage.clear(); //Removes everything from localSTorage
+    localStorage.removeItem("user"); //Removes everything from localSTorage
 }
 
 function toggleForms() {
