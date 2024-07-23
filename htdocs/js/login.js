@@ -94,7 +94,6 @@ function login(){
   
         alert(errorMessage)
     })
-    checkAuthState();
 
     //Grab username through email
     const prom = getEmailJson(email);
@@ -155,7 +154,7 @@ function checkAuthState() {
     } else {
         // User is signed out
         // ...
-        window.location.href = "index.html";
+        //window.location.href = "index.html";
     }
 });
 }
