@@ -52,7 +52,7 @@ function register(){
         const errorMessage = error.message
   
         alert(errorMessage)
-        alert("u shitter")
+        alert("Invalid input")
     })
 }
 
