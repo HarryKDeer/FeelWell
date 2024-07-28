@@ -32,6 +32,28 @@ p.intro{
     padding:20px;
 }
 
+p.team{
+    color:rgb(255, 223, 41);
+    font-size:15px;
+    text-align:center;
+    margin-top:20px;
+    background-color: #47863f;
+    padding: 10px;
+    margin-left:35%;
+    margin-right:35%;
+}
+
+p.teamDescription{
+    color:rgb(255, 223, 41);
+    font-size:20px;
+    text-align:center;
+    margin-top:20px;
+    background-color: #478140;
+    padding: 10px;
+    margin-left:15%;
+    margin-right:15%;
+}
+
 h1.introHeader{
     color:rgb(255, 223, 41);
     font-size: 60px;
@@ -157,6 +179,10 @@ footer {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
+    position: relative;
+    bottom:0;
+    left:0;
+    width:100%;
 }
 
 footer a {
@@ -260,6 +286,12 @@ img.logo{
     width: 100px;
 }
 
+img.team{
+    width: 40%;
+    margin:auto;
+    margin-top: 20px;
+}
+
 .logo{
     padding-top: 5px;
 }
@@ -324,6 +356,10 @@ img.logo{
     padding: 30px;
     padding-left: 35px;
     padding-right: 35px;
+}
+
+.teamColumns{
+    margin-left: 17.5%;
 }
 
 .introHeader{
