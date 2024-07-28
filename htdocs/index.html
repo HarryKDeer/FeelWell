@@ -21,9 +21,15 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+
+		<!-- pixel game fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 		
 		<link rel="stylesheet" href="css/sample.css"/>
 		<link rel="stylesheet" href="css/loginpop.css"/>
+		<link rel="stylesheet" href="css/navbar.css">
 
 		<link rel="shortcut icon" href="media/favicon.ico?" type="image/x-icon"/>
 		<script type="text/javascript" src="js/homepage.js"></script>
@@ -39,7 +45,18 @@
 	<body>
 		<img class = "bigLogo" src="media/bigLogo.png">
 
-		<nav id="navbarID" class="navbar">
+		<nav id="navbarID_home" class="navbar" 
+		style = "background-color: #70d579;
+		padding: 0px 10%;
+		position:relative;
+		margin: 0px;
+		background: linear-gradient(
+			90deg,
+			rgba(68, 102, 64, 1) 0%,
+			rgba(80, 121, 74, 1) 5%,
+			rgba(80, 121, 74, 1) 95%,
+			rgba(68, 102, 64, 1) 100%
+		);">
 			<div class="container">
 				<div class="logo">
 					<a href="index.html">
@@ -87,7 +104,7 @@
 
 				<div class="login-container">
 					<div id="login">
-						<h2>Login</h2>
+						<h2>LOGIN</h2>
 						<form>
 							<input type="email" id="log_email" placeholder="Email" required>
 							<input type="password" id="log_password" placeholder="Password" required>
@@ -104,7 +121,7 @@
 							<input type="user" id="reg_user" placeholder="Full Name" required>
 							<input type="email" id="reg_email" placeholder="Email" required>
 							<input type="password" id="reg_password" placeholder="Password" required>
-							<input type="password" placeholder="Confirm Password" required>
+							<input type="password" id = confirm_pass placeholder="Confirm Pass" required>
 							<button type="button" id="registerButton">Register</button>
 						</form>
 						<div class="switch">

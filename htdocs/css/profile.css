@@ -1,29 +1,22 @@
 /* Reset and Base Styles */
-* {
+/* * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+} */
 
 body {
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
     margin: 0;
     padding: 0;
     background-color: #8be988;
-    /* background-color: rgba(218, 195, 140, 0.677); */
     background-image: url("../media/pixel-landscape.jpg");
     background-position: center;
     background-size: cover;
-    /* background: image     */ 
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    /* background-position-y: -550px; */
 }
-
-/* Stripe Styles */
+/* 
 .stripe {
     margin-top: 15px;
     display: flex;
@@ -39,7 +32,6 @@ body {
     background-attachment: fixed;
 }
 
-/* Footer Styles */
 footer {
     background-color: rgb(63, 81, 59);
     padding-top: 15px;
@@ -70,7 +62,7 @@ footer a {
     padding-right: 5%;
     display: grid;
     grid-template-columns: auto auto auto;
-}
+} */
 
 /* Health Bar */
 .health-bar {
@@ -223,7 +215,7 @@ footer a {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 40px;
+    margin-top: 70px;
     /* margin-bottom: 70px; */
 }
 

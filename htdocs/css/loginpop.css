@@ -1,98 +1,179 @@
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    padding-top: 60px;
-  }
-  
-  /* Modal Content/Box */
-  .modal-content {
-    background-color: transparent;
-    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-    /*border: 1px solid #888;*/
-    width: 80%; /* Could be more or less, depending on screen size */
-  }
-  
-  /* The Close Button (x) */
-  .close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: red;
-    cursor: pointer;
-  }
-  
-  /* Add Zoom Animation */
-  .animate {
-    -webkit-animation: animatezoom 0.6s;
-    animation: animatezoom 0.6s
-  }
-  
-  @-webkit-keyframes animatezoom {
-    from {-webkit-transform: scale(0)} 
-    to {-webkit-transform: scale(1)}
-  }
-    
-  @keyframes animatezoom {
-    from {transform: scale(0)} 
-    to {transform: scale(1)}
-  }
-  
-  /* Change styles for span and cancel button on extra small screens */
-  @media screen and (max-width: 300px) {
-    span.psw {
-       display: block;
-       float: none;
-    }
-    .cancelbtn {
-       width: 100%;
-    }
-  }
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+  padding-left: 240px;
+}
 
-/* login style */
-.login-container {
-    background-color: rgb(222, 184, 135);
-    padding: 2rem;
-    border-radius: 10px;
-    /*background-color: transparent; */
-    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
-    /*border: 2px solid black;
-    box-shadow: 5px 5px rgb(205,170,125);
-    */
+/* Modal Content/Box */
+.modal-content {
+  background-color: transparent;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  /*border: 1px solid #888;*/
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
 }
 
 h2 {
-    font-family: "MedievalSharp", cursive;;
+    font-family: "MedievalSharp", cursive;
+    /* font-family: PressStart2P, cursive; */
+    font-size: 40px;
     text-align: center;
-    color: rgb(255, 223, 41);
+    color: rgb(137,34,1);
+    background-color: rgb(222, 184, 135);
+    border: 4.5px solid rgba(176,74,1,255);
+    border-style: ridge;
+    /* box-shadow: 4px 3px rgb(205,170,125); */
+    margin-top: 22px;
+    margin-bottom: 30px;
+    border-radius: 7px;
+}
+/* login style */
+.login-container {
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    width: 670px;
+    height: 500px;
+    background-color: rgba(244,182,108,255) !important;
+    background: linear-gradient(45deg, rgb(244,182,108), rgb(244, 149, 32));
+    border: 8px solid rgb(223, 116, 29);
+    border-style: double;
+    border-radius: 10px;
+}
+
+/* login page */
+#login, #register {
+  display: block;
+  width: 300px;
+}
+
+#loginButton, #registerButton {
+  display: block;
+  margin-bottom: 3px;
+
+}
+
+
+/* login popup styling */
+
+#log_email, #log_password, #reg_email, #reg_password, #reg_user, #confirm_pass{
+  background-color: rgb(222, 184, 135);
+  /* box-shadow: 1px 2px rgb(222, 184, 135); */
+  border: 2px solid  rgba(142,55,1,255);
+  /* text-indent: 3px; */
+  border-radius: 4px;
+  box-shadow: inset 2px 2px 1px #c67b46;
+  padding-top: 7px;
+  padding-left: 6px;
+  padding-bottom: 0px;;
+  padding-right: 5px;
+  margin-bottom: 13px;
+  width: 63%;
+}
+
+#log_email{
+  margin-bottom: 13px;
+}
+
+#confirm_pass {
+  margin-bottom: 9px;
+}
+
+#log_password::placeholder,
+#log_email::placeholder, 
+#reg_email::placeholder,
+#reg_password::placeholder,
+#reg_user::placeholder,
+#confirm_pass::placeholder{
+  font-size: 20px;
+  /* font-family: VT323, monospace; */
+  font-family: Pixelify Sans, sans-serif;
+  color: rgb(69, 68, 68); 
+  padding-bottom: 100px;
 }
 
 button {
-    background-color: rgb(96, 167, 87);;
+    /* background-color: rgb(96, 167, 87);;
     color: white;
     border: none;
     padding: 10px;
     margin-top: 10px;
     border-radius: 4px;
-    cursor: pointer;
+    cursor: pointer; */
+    margin-top: 15px;
+    padding: 2px 5px;
+    background-color: rgba(238,173,103,255);
+    font-size: 14px;
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    border-color: rgba(154, 80, 0, 0.542);
+    border-style: ridged;
+    border-width: 5px;
+    border-radius: 2px;
 }
+
+.button:active{
+  background-color: #b65000;
+}
+
 button:hover {
-    background-color: #0056b3;
+  background-color: rgb(244, 166, 84);
 }
 
 .switch {

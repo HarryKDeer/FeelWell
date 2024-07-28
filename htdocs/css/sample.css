@@ -54,6 +54,49 @@ p.teamDescription{
     margin-right:15%;
 }
 
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.stripe {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 25px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
+    box-shadow: 1px 1px 1px 1px #33572e;
+    background-color: #75d172;
+    background-attachment: fixed;
+}
+
+footer {
+    background-color: rgb(63, 81, 59);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer a {
+    color: #7d7d7d;
+}
+
+.footer ul li a {
+    padding: 10px 20px;
+    display: block;
+    transition: 0.5s;
+}
+
 h1.introHeader{
     color:rgb(255, 223, 41);
     font-size: 60px;
@@ -179,10 +222,6 @@ footer {
     text-align: center;
     padding-left: 10%;
     padding-right: 10%;
-    position: relative;
-    bottom:0;
-    left:0;
-    width:100%;
 }
 
 footer a {
@@ -202,10 +241,10 @@ footer a {
 
 @keyframes bobUpDown {
     0%, 100% {
-      transform: translateY(50);
+        transform: translateY(50);
     }
     50% {
-      transform: translateY(-50px);
+        transform: translateY(-50px);
     }
   }
 
