@@ -32,6 +32,28 @@ p.intro{
     padding:20px;
 }
 
+p.team{
+    color:rgb(255, 223, 41);
+    font-size:15px;
+    text-align:center;
+    margin-top:20px;
+    background-color: #47863f;
+    padding: 10px;
+    margin-left:35%;
+    margin-right:35%;
+}
+
+p.teamDescription{
+    color:rgb(255, 223, 41);
+    font-size:20px;
+    text-align:center;
+    margin-top:20px;
+    background-color: #478140;
+    padding: 10px;
+    margin-left:15%;
+    margin-right:15%;
+}
+
 ul {
     list-style: none;
 }
@@ -136,6 +158,82 @@ table.leaderboard tr.third{
     color:#ff9238;
 }
 
+/* Navbar Styles */
+.navbar {
+    background-color: #70d579;
+    padding: 0px 10%;
+    margin: 0px;
+    filter: drop-shadow(0px 5px 5px #274323);
+    background: linear-gradient(90deg, rgba(68,102,64,1) 0%, rgba(80,121,74,1) 5%, rgba(80,121,74,1) 95%, rgba(68,102,64,1) 100%);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .main-menu ul {
+    display: flex;
+}
+
+.navbar ul li a {
+    padding: 10px 20px;
+    display: block;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.navbar ul li a:hover {
+    color: #ffd438;
+    background-color: rgb(96, 167, 87);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Stripe Styles */
+.stripe {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-bottom: 25px;
+    background-image: linear-gradient(to bottom, rgba(255,0,0,0), rgb(79, 189, 94));
+    box-shadow: 1px 1px 1px 1px #33572e;
+    background-color: #75d172;
+    background-attachment: fixed;
+}
+
+/* Footer Styles */
+footer {
+    background-color: rgb(63, 81, 59);
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-top: 15px;
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+footer a {
+    color: #7d7d7d;
+}
+
+.footer ul li a {
+    padding: 10px 20px;
+    display: block;
+    transition: 0.5s;
+}
+
 .portrait{
     width: 80%;
     animation: bobUpDown 2s ease-in-out infinite;
@@ -227,6 +325,12 @@ img.logo{
     width: 100px;
 }
 
+img.team{
+    width: 40%;
+    margin:auto;
+    margin-top: 20px;
+}
+
 .logo{
     padding-top: 5px;
 }
@@ -291,6 +395,10 @@ img.logo{
     padding: 30px;
     padding-left: 35px;
     padding-right: 35px;
+}
+
+.teamColumns{
+    margin-left: 17.5%;
 }
 
 .introHeader{
